@@ -23,14 +23,51 @@
                     <view key="view" contentMode="scaleToFill" id="2kT-Mj-ef6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-bp-XIX">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Qb-Mr0">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RCY-I3-Kqj" id="anw-Aa-geg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fm4-ub-kee" id="OCA-Nd-AeL"/>
+                                    <outlet property="delegate" destination="fm4-ub-kee" id="Gzc-dY-amv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mve-Ug-fWb" firstAttribute="trailing" secondItem="aJy-bp-XIX" secondAttribute="trailing" id="7bk-V7-AmC"/>
+                            <constraint firstItem="Mve-Ug-fWb" firstAttribute="trailing" secondItem="3IE-Qb-Mr0" secondAttribute="trailing" id="Hf9-KE-93o"/>
+                            <constraint firstItem="aJy-bp-XIX" firstAttribute="leading" secondItem="Mve-Ug-fWb" secondAttribute="leading" id="RwK-lS-u02"/>
+                            <constraint firstItem="Mve-Ug-fWb" firstAttribute="bottom" secondItem="aJy-bp-XIX" secondAttribute="bottom" id="SGL-MH-PWh"/>
+                            <constraint firstItem="3IE-Qb-Mr0" firstAttribute="top" secondItem="Mve-Ug-fWb" secondAttribute="top" id="SxX-HX-HWz"/>
+                            <constraint firstItem="3IE-Qb-Mr0" firstAttribute="leading" secondItem="Mve-Ug-fWb" secondAttribute="leading" id="kRh-V9-e2T"/>
+                            <constraint firstItem="Mve-Ug-fWb" firstAttribute="bottom" secondItem="3IE-Qb-Mr0" secondAttribute="bottom" id="n9h-Rt-WE1"/>
+                            <constraint firstItem="aJy-bp-XIX" firstAttribute="top" secondItem="Mve-Ug-fWb" secondAttribute="top" id="xMx-UG-zel"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mve-Ug-fWb"/>
                     </view>
                     <navigationItem key="navigationItem" id="qhK-lV-gMj"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="aJy-bp-XIX" id="0eL-iS-zBU"/>
+                        <outlet property="taskTableView" destination="3IE-Qb-Mr0" id="lFa-dg-KFA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dck-bV-6ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="390"/>
+            <point key="canvasLocation" x="897" y="316"/>
         </scene>
         <!--What to take-->
         <scene sceneID="hzW-p5-tV9">
@@ -91,6 +128,7 @@
                                             <outlet property="categoryColor" destination="EMT-iI-csR" id="ATe-Hz-8fp"/>
                                             <outlet property="categoryLabel" destination="d2a-3T-rdS" id="zca-yG-Y8E"/>
                                             <outlet property="inputCategory" destination="Nbd-OP-dgp" id="CVz-cb-5yd"/>
+                                            <segue destination="TzT-CO-H2K" kind="showDetail" identifier="ShowDetail" id="Vq4-Fv-5ra"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -171,10 +209,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLD-dL-Ylb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="390"/>
+            <point key="canvasLocation" x="96" y="317"/>
         </scene>
     </scenes>
     <resources>
         <image name="add button" width="90" height="90"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Vq4-Fv-5ra"/>
+    </inferredMetricsTieBreakers>
 </document>
