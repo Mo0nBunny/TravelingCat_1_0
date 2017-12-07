@@ -14,18 +14,21 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var backgroundImage: UIImageView!
     
     var category: CaterogyData?
-    var taskArray = [String]()
+    var taskArray = [TaskData]()
     
       
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        taskArray.append(TaskData(task: ""))
+
         taskTableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         
         if let detailCategory = self.category {
             navigationItem.title = detailCategory.title
         }
-        for taskItem in taskArray {
+       
+        for taskItem: TaskData in ToDoTask.whatToDo {
             taskArray.append(taskItem)
         }
     }
@@ -39,22 +42,23 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return taskArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailTableViewCell
         cell.inputTask.delegate = self
-        cell.inputTask.text = ""
-        cell.inputTask.selectAll(nil)
+//        self.taskArray.append(cell.inputTask.text!)
+        cell.inputTask.text = taskArray[indexPath.row].task
         cell.backgroundColor = UIColor.clear
         return cell
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        taskArray.append(textField.text!)
-//        taskTableView.reloadData()
-        print(taskArray)
+        self.taskArray.append(TaskData(task: textField.text!))
+//        self.taskArray.append(TaskData(task:""))
+        self.taskTableView.reloadData()
+        print(self.taskArray)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
