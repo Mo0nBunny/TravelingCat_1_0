@@ -29,6 +29,8 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)
+        //Mark - without text on back button
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         for defaultItem: CaterogyData in DefaultCaterogy.whatToTake {
             defaultData.append(defaultItem)
@@ -71,8 +73,8 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.inputCategory.isHidden = false
         }
         
-        edit.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        delete.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        edit.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        delete.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.1764705882, blue: 0.1725490196, alpha: 1)
         
         return [delete, edit]
     }

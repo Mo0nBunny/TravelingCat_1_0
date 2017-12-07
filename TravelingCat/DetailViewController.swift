@@ -24,19 +24,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let detailCategory = self.category {
             navigationItem.title = detailCategory.title
         }
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -49,16 +43,5 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.backgroundColor = UIColor.clear
         return cell
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
