@@ -78,6 +78,34 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //        if isAddAction == true {
+        //            let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
+        //            cell.isEditing = false
+        //            self.defaultData.removeLast()
+        //            self.defaultData.append(CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow"))
+        //            self.categoryTableView.reloadData()
+        //            isAddAction = false
+        //
+        //        } else if isEditAction == true {
+        //            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
+        //            let table: UITableView = cell.superview as! UITableView
+        //            let textFieldIndexPath = table.indexPath(for: cell)
+        //
+        //            self.defaultData[(textFieldIndexPath?.row)!] = CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow")
+        //            self.categoryTableView.reloadData()
+        //            isEditAction = false
+        //        }
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.categoryTableView.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if isAddAction == true {
             let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
             cell.isEditing = false
@@ -95,14 +123,16 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.categoryTableView.reloadData()
             isEditAction = false
         }
-        
-        textField.resignFirstResponder()
-        return true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        self.categoryTableView.endEditing(true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
+                let category = defaultData[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.category = category
+            }
+        }
     }
     
 }

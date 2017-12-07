@@ -13,6 +13,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    var category: CaterogyData?
     
     
     
@@ -20,6 +21,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         taskTableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         
+        if let detailCategory = self.category {
+            navigationItem.title = detailCategory.title
+        }
         
         
         
