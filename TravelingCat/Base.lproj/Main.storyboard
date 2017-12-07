@@ -12,6 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Medium</string>
             <string>AppleSDGothicNeo-Regular</string>
         </array>
     </customFonts>
@@ -27,17 +28,37 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-bp-XIX">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Qb-Mr0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Qb-Mr0">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj" customClass="DetailTableViewCell" customModule="TravelingCat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RCY-I3-Kqj" id="anw-Aa-geg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add new task" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="mal-7s-spR">
+                                                    <rect key="frame" x="55" y="0.0" width="359" height="50"/>
+                                                    <color key="textColor" red="0.36078431372549019" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fm4-ub-kee" id="xkc-qa-DZt"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mal-7s-spR" firstAttribute="leading" secondItem="anw-Aa-geg" secondAttribute="leading" constant="55" id="EOA-L9-rn0"/>
+                                                <constraint firstItem="mal-7s-spR" firstAttribute="top" secondItem="anw-Aa-geg" secondAttribute="top" id="I7V-u6-pLU"/>
+                                                <constraint firstAttribute="trailing" secondItem="mal-7s-spR" secondAttribute="trailing" id="Obd-g3-myb"/>
+                                                <constraint firstAttribute="bottom" secondItem="mal-7s-spR" secondAttribute="bottom" id="dgm-36-mZ3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="inputTask" destination="mal-7s-spR" id="dC2-Kk-0SI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -67,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dck-bV-6ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="316"/>
+            <point key="canvasLocation" x="895.6521739130435" y="315.48913043478262"/>
         </scene>
         <!--What to take-->
         <scene sceneID="hzW-p5-tV9">

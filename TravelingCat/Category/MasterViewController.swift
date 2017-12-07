@@ -80,24 +80,6 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //        if isAddAction == true {
-        //            let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
-        //            cell.isEditing = false
-        //            self.defaultData.removeLast()
-        //            self.defaultData.append(CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow"))
-        //            self.categoryTableView.reloadData()
-        //            isAddAction = false
-        //
-        //        } else if isEditAction == true {
-        //            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
-        //            let table: UITableView = cell.superview as! UITableView
-        //            let textFieldIndexPath = table.indexPath(for: cell)
-        //
-        //            self.defaultData[(textFieldIndexPath?.row)!] = CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow")
-        //            self.categoryTableView.reloadData()
-        //            isEditAction = false
-        //        }
-        
         textField.resignFirstResponder()
         return true
     }
