@@ -85,19 +85,46 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let categoryName = category.title
         let categoryImage = category.imageName
         cell.categoryLabel.text = categoryName
+        
         cell.categoryColor.image = UIImage(named: categoryImage!)
         
-        //        cell.categoryColor.image = defaultData[indexPath.row].image
-        //        cell.categoryLabel.text = defaultData[indexPath.row].title
+        
         cell.inputCategory.isHidden = true
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //            let managedContext = appDelegate.persistentContainer.viewContext
+    //            managedContext.delete(self.categoryArray[indexPath.row])
+    //        do {
+    //            try managedContext.save()
+    //            self.categoryArray.remove(at: indexPath.row)
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //            print("saved!")
+    //        } catch let error as NSError  {
+    //            print("Could not save \(error), \(error.userInfo)")
+    //        }
+    //        }
+    //    }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
-            //            self.defaultData.remove(at: indexPath.row)
-            //            tableView.deleteRows(at: [indexPath], with: .fade)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            managedContext.delete(self.categoryArray[indexPath.row])
+            do {
+                try managedContext.save()
+                self.categoryArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                print("saved!")
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
         }
         let edit = UITableViewRowAction(style: .default, title: "Edit") {(action, indexPath) in
             //            self.isEditAction = true
@@ -148,7 +175,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             isEditAction = false
         }
     }
-    
+    //Mark - old one
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     //        if segue.identifier == "ShowDetail" {
     //            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
@@ -159,4 +186,41 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //        }
     //    }
     
+    
+    // MArk new one
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "ShowTasksViewController" {
+    //            let viewController = segue.destination as! TasksTableViewController
+    //            let selectedIndexPath = tableView.indexPathForSelectedRow
+    //            let person = people[(selectedIndexPath?.row)!]
+    //            viewController.person = person
+    //        }
+    //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
+                let category = categoryArray[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.category = category
+            }
+        }
+    }
+    
+    func deleteCategory(index : Int) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        
+        //        let result = try? managedContext.fetch(fetchRequest)
+        managedContext.delete(categoryArray[index])
+        
+        do {
+            try managedContext.save()
+            //updateDisplayOrder()
+            print("saved!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
 }

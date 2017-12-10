@@ -14,7 +14,6 @@ class CategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var inputCategory: UITextField!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

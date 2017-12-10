@@ -6,9 +6,9 @@
 //  Copyright © 2017 Sirin K. All rights reserved.
 //
 
-import UIKit
-
-struct ToDoTask {
-    static var whatToDo : [TaskData] = []
-}
-
+//import UIKit
+//
+//struct ToDoTask {
+//    static var whatToDo : [TaskData] = []
+//}
+//
