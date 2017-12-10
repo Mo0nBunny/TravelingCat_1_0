@@ -7,23 +7,52 @@
 //
 
 import UIKit
+import CoreData
 
 class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var defaultData = [CaterogyData]()
+    //    var defaultData = [CaterogyData]()
     var isEditAction: Bool = false
     var isAddAction: Bool = false
     
+    var categoryArray = [Category]()
+    
     @IBOutlet weak var categoryTableView: UITableView!
+    
     @IBAction func addButton(_ sender: UIButton) {
         self.isAddAction = true
-        self.defaultData.append(CaterogyData(title: "New category", imageLabel: "yellow"))
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)
+        
+        let category = Category(entity: entity!, insertInto: context)
+        category.title = "New Category"
+        category.imageName = "yellow"
+        appDelegate.saveContext()
+        categoryArray.append(category)
+        //        self.defaultData.append(CaterogyData(title: "New category", imageLabel: "yellow"))
         self.categoryTableView.reloadData()
         let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
-        cell.inputCategory.text = "New Category \(defaultData.count)"
+        cell.inputCategory.text = "New Category \(categoryArray.count)"
         cell.inputCategory.selectAll(nil)
         cell.inputCategory.isHidden = false
         cell.inputCategory.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            categoryArray = results as! [Category]
+        } catch let error as NSError {
+            print("Fetching Error: \(error.userInfo)")
+        }
     }
     
     override func viewDidLoad() {
@@ -32,9 +61,9 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Mark - without text on back button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        for defaultItem: CaterogyData in DefaultCaterogy.whatToTake {
-            defaultData.append(defaultItem)
-        }
+        //        for defaultItem: CaterogyData in DefaultCaterogy.whatToTake {
+        //            defaultData.append(defaultItem)
+        //        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,14 +75,20 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return defaultData.count
+        return categoryArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CategoryTableViewCell
         cell.inputCategory.delegate = self
-        cell.categoryColor.image = defaultData[indexPath.row].image
-        cell.categoryLabel.text = defaultData[indexPath.row].title
+        let category = categoryArray[indexPath.row]
+        let categoryName = category.title
+        let categoryImage = category.imageName
+        cell.categoryLabel.text = categoryName
+        cell.categoryColor.image = UIImage(named: categoryImage!)
+        
+        //        cell.categoryColor.image = defaultData[indexPath.row].image
+        //        cell.categoryLabel.text = defaultData[indexPath.row].title
         cell.inputCategory.isHidden = true
         return cell
     }
@@ -61,16 +96,16 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
-            self.defaultData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            //            self.defaultData.remove(at: indexPath.row)
+            //            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         let edit = UITableViewRowAction(style: .default, title: "Edit") {(action, indexPath) in
-            self.isEditAction = true
-            let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
-            let oldName = cell.categoryLabel.text
-            cell.inputCategory.text = oldName
-            cell.inputCategory.selectAll(nil)
-            cell.inputCategory.isHidden = false
+            //            self.isEditAction = true
+            //            let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+            //            let oldName = cell.categoryLabel.text
+            //            cell.inputCategory.text = oldName
+            //            cell.inputCategory.selectAll(nil)
+            //            cell.inputCategory.isHidden = false
         }
         
         edit.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
@@ -93,30 +128,35 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if isAddAction == true {
             let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
             cell.isEditing = false
-            self.defaultData.removeLast()
-            self.defaultData.append(CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow"))
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let category = categoryArray[categoryArray.count - 1]
+            category.title = cell.inputCategory.text!
+            category.imageName = "yellow"
+            appDelegate.saveContext()
             self.categoryTableView.reloadData()
             isAddAction = false
             
         } else if isEditAction == true {
-            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
-            let table: UITableView = cell.superview as! UITableView
-            let textFieldIndexPath = table.indexPath(for: cell)
-            
-            self.defaultData[(textFieldIndexPath?.row)!] = CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow")
-            self.categoryTableView.reloadData()
+            //            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
+            //            let table: UITableView = cell.superview as! UITableView
+            //            let textFieldIndexPath = table.indexPath(for: cell)
+            //
+            //            self.defaultData[(textFieldIndexPath?.row)!] = CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow")
+            //            self.categoryTableView.reloadData()
             isEditAction = false
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetail" {
-            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
-                let category = defaultData[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.category = category
-            }
-        }
-    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "ShowDetail" {
+    //            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
+    //                let category = defaultData[indexPath.row]
+    //                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+    //                controller.category = category
+    //            }
+    //        }
+    //    }
     
 }
