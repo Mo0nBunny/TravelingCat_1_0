@@ -31,7 +31,6 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         category.imageName = "yellow"
         appDelegate.saveContext()
         categoryArray.append(category)
-        //        self.defaultData.append(CaterogyData(title: "New category", imageLabel: "yellow"))
         self.categoryTableView.reloadData()
         let cell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
         cell.inputCategory.text = "New Category \(categoryArray.count)"
@@ -96,21 +95,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    //            let managedContext = appDelegate.persistentContainer.viewContext
-    //            managedContext.delete(self.categoryArray[indexPath.row])
-    //        do {
-    //            try managedContext.save()
-    //            self.categoryArray.remove(at: indexPath.row)
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //            print("saved!")
-    //        } catch let error as NSError  {
-    //            print("Could not save \(error), \(error.userInfo)")
-    //        }
-    //        }
-    //    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
@@ -127,12 +112,12 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         let edit = UITableViewRowAction(style: .default, title: "Edit") {(action, indexPath) in
-            //            self.isEditAction = true
-            //            let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
-            //            let oldName = cell.categoryLabel.text
-            //            cell.inputCategory.text = oldName
-            //            cell.inputCategory.selectAll(nil)
-            //            cell.inputCategory.isHidden = false
+                        self.isEditAction = true
+                        let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+                        let oldName = cell.categoryLabel.text
+                        cell.inputCategory.text = oldName
+                        cell.inputCategory.selectAll(nil)
+                        cell.inputCategory.isHidden = false
         }
         
         edit.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
@@ -166,36 +151,19 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             isAddAction = false
             
         } else if isEditAction == true {
-            //            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
-            //            let table: UITableView = cell.superview as! UITableView
-            //            let textFieldIndexPath = table.indexPath(for: cell)
-            //
-            //            self.defaultData[(textFieldIndexPath?.row)!] = CaterogyData(title: cell.inputCategory.text!, imageLabel: "yellow")
-            //            self.categoryTableView.reloadData()
+                        let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
+                        let table: UITableView = cell.superview as! UITableView
+                        let textFieldIndexPath = table.indexPath(for: cell)
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let category = categoryArray[(textFieldIndexPath?.row)!]
+            category.title = cell.inputCategory.text!
+            category.imageName = "yellow"
+            appDelegate.saveContext()
+            self.categoryTableView.reloadData()
             isEditAction = false
         }
     }
-    //Mark - old one
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "ShowDetail" {
-    //            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
-    //                let category = defaultData[indexPath.row]
-    //                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-    //                controller.category = category
-    //            }
-    //        }
-    //    }
     
-    
-    // MArk new one
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "ShowTasksViewController" {
-    //            let viewController = segue.destination as! TasksTableViewController
-    //            let selectedIndexPath = tableView.indexPathForSelectedRow
-    //            let person = people[(selectedIndexPath?.row)!]
-    //            viewController.person = person
-    //        }
-    //    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             if let indexPath = self.categoryTableView.indexPathForSelectedRow {
@@ -204,23 +172,5 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 controller.category = category
             }
         }
-    }
-    
-    func deleteCategory(index : Int) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
-        
-        //        let result = try? managedContext.fetch(fetchRequest)
-        managedContext.delete(categoryArray[index])
-        
-        do {
-            try managedContext.save()
-            //updateDisplayOrder()
-            print("saved!")
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-        
     }
 }
