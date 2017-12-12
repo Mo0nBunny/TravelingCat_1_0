@@ -14,7 +14,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //    var defaultData = [CaterogyData]()
     var isEditAction: Bool = false
     var isAddAction: Bool = false
-    
+    let colorLabel = ["yellow", "blue", "green"]
     var categoryArray = [Category]()
     
     @IBOutlet weak var categoryTableView: UITableView!
@@ -28,7 +28,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let category = Category(entity: entity!, insertInto: context)
         category.title = "New Category"
-        category.imageName = "yellow"
+        category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
         appDelegate.saveContext()
         categoryArray.append(category)
         self.categoryTableView.reloadData()
@@ -145,7 +145,6 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let category = categoryArray[categoryArray.count - 1]
             category.title = cell.inputCategory.text!
-            category.imageName = "yellow"
             appDelegate.saveContext()
             self.categoryTableView.reloadData()
             isAddAction = false
@@ -157,7 +156,6 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let category = categoryArray[(textFieldIndexPath?.row)!]
             category.title = cell.inputCategory.text!
-            category.imageName = "yellow"
             appDelegate.saveContext()
             self.categoryTableView.reloadData()
             isEditAction = false
