@@ -14,6 +14,28 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBAction func checkButtonTapped(_ sender: UIButton) {
+        print("button tapped")
+        let cell: DetailTableViewCell = sender.superview?.superview as! DetailTableViewCell
+        let table: UITableView = cell.superview as! UITableView
+        let buttonIndexPath = table.indexPath(for: cell)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let task = taskArray[(buttonIndexPath?.row)!]
+        
+        var taskIsDone: Bool
+        if cell.checkButton.imageView?.image == #imageLiteral(resourceName: "check- empty") {
+            taskIsDone = true
+        } else {
+           taskIsDone = false
+        }
+        task.isDone = taskIsDone
+        task.category = category
+        appDelegate.saveContext()
+        self.taskTableView.reloadData()
+        
+    }
+    
     //    var category: CaterogyData?
     var category: Category?
     //    var taskArray = [TaskData]()
@@ -63,6 +85,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailTableViewCell
         cell.inputTask.delegate = self
         cell.inputTask.text = taskArray[indexPath.row].task
+        
+        let taskDone = taskArray[indexPath.row].isDone
+        if taskDone == true {
+            cell.checkButton.setImage(#imageLiteral(resourceName: "check- done"), for: .normal)
+        } else {
+            cell.checkButton.setImage(#imageLiteral(resourceName: "check- empty"), for: .normal)
+        }
+        
         cell.backgroundColor = UIColor.clear
         return cell
     }

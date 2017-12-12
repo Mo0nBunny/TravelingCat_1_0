@@ -14,14 +14,14 @@ class DetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkButton: UIButton!
     
-    @IBAction func checkButtonTapped(_ sender: Any) {
-        if checkButton.imageView?.image == #imageLiteral(resourceName: "check- empty"){
-            checkButton.setImage(#imageLiteral(resourceName: "check- done"), for: .normal)
-        } else {
-            checkButton.setImage(#imageLiteral(resourceName: "check- empty"), for: .normal)
-        }
-    }
-    
+//    @IBAction func checkButtonTapped(_ sender: Any) {
+//        if checkButton.imageView?.image == #imageLiteral(resourceName: "check- empty"){
+//            checkButton.setImage(#imageLiteral(resourceName: "check- done"), for: .normal)
+//        } else {
+//            checkButton.setImage(#imageLiteral(resourceName: "check- empty"), for: .normal)
+//        }
+//    }
+//    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

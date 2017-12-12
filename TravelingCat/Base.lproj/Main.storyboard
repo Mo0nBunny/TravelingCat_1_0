@@ -42,7 +42,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add new task" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="mal-7s-spR">
-                                                    <rect key="frame" x="55" y="0.0" width="713" height="50"/>
+                                                    <rect key="frame" x="55" y="0.0" width="359" height="50"/>
                                                     <color key="textColor" red="0.36078431372549019" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -58,7 +58,7 @@
                                                     </constraints>
                                                     <state key="normal" image="check- empty"/>
                                                     <connections>
-                                                        <action selector="checkButtonTapped:" destination="RCY-I3-Kqj" eventType="touchUpInside" id="04c-nQ-kvP"/>
+                                                        <action selector="checkButtonTapped:" destination="fm4-ub-kee" eventType="touchUpInside" id="rFK-k2-ws8"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
