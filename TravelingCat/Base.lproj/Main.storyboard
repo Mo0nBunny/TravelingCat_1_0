@@ -34,7 +34,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj" customClass="DetailTableViewCell" customModule="TravelingCat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj" customClass="DetailTableViewCell" customModule="TravelingCat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RCY-I3-Kqj" id="anw-Aa-geg">
@@ -50,16 +50,30 @@
                                                         <outlet property="delegate" destination="fm4-ub-kee" id="xkc-qa-DZt"/>
                                                     </connections>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xh-PK-fcD">
+                                                    <rect key="frame" x="15" y="11" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7xh-PK-fcD" secondAttribute="height" multiplier="1:1" id="PVO-yh-pjb"/>
+                                                        <constraint firstAttribute="height" constant="30" id="d2f-eR-Doj"/>
+                                                    </constraints>
+                                                    <state key="normal" image="check- empty"/>
+                                                    <connections>
+                                                        <action selector="checkButtonTapped:" destination="RCY-I3-Kqj" eventType="touchUpInside" id="04c-nQ-kvP"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="mal-7s-spR" firstAttribute="leading" secondItem="anw-Aa-geg" secondAttribute="leading" constant="55" id="EOA-L9-rn0"/>
                                                 <constraint firstItem="mal-7s-spR" firstAttribute="top" secondItem="anw-Aa-geg" secondAttribute="top" id="I7V-u6-pLU"/>
                                                 <constraint firstAttribute="trailing" secondItem="mal-7s-spR" secondAttribute="trailing" id="Obd-g3-myb"/>
+                                                <constraint firstItem="7xh-PK-fcD" firstAttribute="leading" secondItem="anw-Aa-geg" secondAttribute="leading" constant="15" id="UVo-qz-euM"/>
                                                 <constraint firstAttribute="bottom" secondItem="mal-7s-spR" secondAttribute="bottom" id="dgm-36-mZ3"/>
+                                                <constraint firstItem="7xh-PK-fcD" firstAttribute="top" secondItem="anw-Aa-geg" secondAttribute="top" constant="11" id="l9p-Dy-52F"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="checkButton" destination="7xh-PK-fcD" id="gge-Ve-X7d"/>
                                             <outlet property="inputTask" destination="mal-7s-spR" id="dC2-Kk-0SI"/>
                                         </connections>
                                     </tableViewCell>
@@ -182,7 +196,7 @@
                                 <variation key="heightClass=compact" constant="-65"/>
                             </constraint>
                             <constraint firstItem="ifQ-3L-fhv" firstAttribute="leading" secondItem="MM3-Ra-6ff" secondAttribute="leading" id="I8Y-AO-H7Z"/>
-                            <constraint firstItem="MM3-Ra-6ff" firstAttribute="bottom" secondItem="ifQ-3L-fhv" secondAttribute="bottom" id="TTL-5f-AWK"/>
+                            <constraint firstItem="ifQ-3L-fhv" firstAttribute="bottom" secondItem="MM3-Ra-6ff" secondAttribute="bottom" id="TTL-5f-AWK"/>
                             <constraint firstItem="co9-KO-wfk" firstAttribute="top" secondItem="ifQ-3L-fhv" secondAttribute="bottom" constant="-126" id="pAW-9k-gk6">
                                 <variation key="heightClass=compact" constant="-74"/>
                             </constraint>
@@ -250,6 +264,7 @@
     <resources>
         <image name="add button" width="90" height="90"/>
         <image name="background2" width="1154" height="837"/>
+        <image name="check- empty" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vq4-Fv-5ra"/>
