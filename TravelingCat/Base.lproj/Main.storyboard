@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,14 +26,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-bp-XIX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-bp-XIX">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Qb-Mr0">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj" customClass="DetailTableViewCell" customModule="TravelingCat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RCY-I3-Kqj" customClass="DetailTableViewCell" customModule="TravelingCat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RCY-I3-Kqj" id="anw-Aa-geg">
@@ -56,6 +58,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="mal-7s-spR" secondAttribute="bottom" id="dgm-36-mZ3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="inputTask" destination="mal-7s-spR" id="dC2-Kk-0SI"/>
                                         </connections>
@@ -158,10 +161,41 @@
                                     <outlet property="delegate" destination="Q6L-zq-gCw" id="yad-2A-ddj"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co9-KO-wfk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co9-KO-wfk">
                                 <rect key="frame" x="310" y="610" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2ZY-gw-D6l"/>
+                                    <constraint firstAttribute="width" secondItem="co9-KO-wfk" secondAttribute="height" multiplier="1:1" id="C2V-TP-ODg"/>
+                                    <constraint firstAttribute="height" constant="90" id="NYz-iZ-n7K"/>
+                                    <constraint firstAttribute="width" secondItem="co9-KO-wfk" secondAttribute="height" multiplier="1:1" id="YUg-YK-ddk"/>
+                                    <constraint firstAttribute="width" secondItem="co9-KO-wfk" secondAttribute="height" multiplier="1:1" id="dR8-w1-UHx"/>
+                                    <constraint firstAttribute="height" constant="60" id="dcA-xH-IwO"/>
+                                </constraints>
                                 <state key="normal" image="add button"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2ZY-gw-D6l"/>
+                                        <exclude reference="C2V-TP-ODg"/>
+                                        <exclude reference="dR8-w1-UHx"/>
+                                        <exclude reference="dcA-xH-IwO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="C2V-TP-ODg"/>
+                                        <exclude reference="NYz-iZ-n7K"/>
+                                        <exclude reference="YUg-YK-ddk"/>
+                                        <include reference="dcA-xH-IwO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="2ZY-gw-D6l"/>
+                                        <exclude reference="NYz-iZ-n7K"/>
+                                        <exclude reference="YUg-YK-ddk"/>
+                                        <include reference="dR8-w1-UHx"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="addButton:" destination="Q6L-zq-gCw" eventType="touchUpInside" id="jgb-N4-Pfs"/>
                                 </connections>
@@ -170,11 +204,41 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ifQ-3L-fhv" firstAttribute="top" secondItem="MM3-Ra-6ff" secondAttribute="top" id="0jE-oS-1qb"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="top" secondItem="MM3-Ra-6ff" secondAttribute="top" constant="601" id="4cd-qY-gOt"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="leading" secondItem="MM3-Ra-6ff" secondAttribute="leading" constant="215" id="8Kx-OC-QtS"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="leading" secondItem="MM3-Ra-6ff" secondAttribute="leading" constant="310" id="DV9-WG-dpi"/>
                             <constraint firstItem="ifQ-3L-fhv" firstAttribute="leading" secondItem="MM3-Ra-6ff" secondAttribute="leading" id="I8Y-AO-H7Z"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="leading" secondItem="MM3-Ra-6ff" secondAttribute="leading" constant="230" id="MY3-Yx-ZTc"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="top" secondItem="MM3-Ra-6ff" secondAttribute="top" constant="546" id="RjE-IK-qqY"/>
                             <constraint firstItem="MM3-Ra-6ff" firstAttribute="bottom" secondItem="ifQ-3L-fhv" secondAttribute="bottom" id="TTL-5f-AWK"/>
+                            <constraint firstItem="co9-KO-wfk" firstAttribute="top" secondItem="MM3-Ra-6ff" secondAttribute="top" constant="308" id="Yhg-we-3WJ"/>
                             <constraint firstItem="MM3-Ra-6ff" firstAttribute="trailing" secondItem="ifQ-3L-fhv" secondAttribute="trailing" id="tiX-Ub-nFi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MM3-Ra-6ff"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4cd-qY-gOt"/>
+                                <exclude reference="8Kx-OC-QtS"/>
+                                <exclude reference="MY3-Yx-ZTc"/>
+                                <exclude reference="Yhg-we-3WJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="DV9-WG-dpi"/>
+                                <include reference="MY3-Yx-ZTc"/>
+                                <exclude reference="RjE-IK-qqY"/>
+                                <include reference="Yhg-we-3WJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="4cd-qY-gOt"/>
+                                <include reference="8Kx-OC-QtS"/>
+                                <exclude reference="DV9-WG-dpi"/>
+                                <exclude reference="RjE-IK-qqY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="What to take" id="OWr-Es-fDd"/>
                     <connections>
@@ -235,6 +299,7 @@
     </scenes>
     <resources>
         <image name="add button" width="90" height="90"/>
+        <image name="background2" width="1154" height="837"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vq4-Fv-5ra"/>

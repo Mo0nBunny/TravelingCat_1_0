@@ -58,23 +58,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        taskArray.append(TaskData(task: ""))
-//        let taskArrayCount = taskArray.count
-//        if taskArrayCount == 0 {
-//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//            let context = appDelegate.persistentContainer.viewContext
-//            let entity = NSEntityDescription.entity(forEntityName: "ToDoList", in: context)
-//
-//            let task = ToDoList(entity: entity!, insertInto: context)
-//            task.task = ""
-//            task.isDone = false
-//            task.category = category
-//            appDelegate.saveContext()
-//            taskArray.append(task)
-//            self.taskTableView.reloadData()
-//        }
 
-        taskTableView.backgroundView = UIImageView(image: UIImage(named: "background"))
+        let image = UIImage(named: "background2")
+        let imageView = UIImageView(image: image)
+        imageView.center = taskTableView.center
+        imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.8
+        taskTableView.backgroundView = imageView
+        
+//        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        
+//        imageView.alpha = 0.8
         
         if let detailCategory = self.category {
             navigationItem.title = detailCategory.title
