@@ -11,42 +11,36 @@ import CoreData
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     
+    var category: Category?
+    var taskArray = [ToDoList]()
+    
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         print("button tapped")
         let cell: DetailTableViewCell = sender.superview?.superview as! DetailTableViewCell
         let table: UITableView = cell.superview as! UITableView
         let buttonIndexPath = table.indexPath(for: cell)
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let task = taskArray[(buttonIndexPath?.row)!]
-        
         var taskIsDone: Bool
+        
         if cell.checkButton.imageView?.image == #imageLiteral(resourceName: "check- empty") {
             taskIsDone = true
         } else {
-           taskIsDone = false
+            taskIsDone = false
         }
         task.isDone = taskIsDone
         task.category = category
         appDelegate.saveContext()
         self.taskTableView.reloadData()
-        
     }
-    
-    //    var category: CaterogyData?
-    var category: Category?
-    //    var taskArray = [TaskData]()
-    var taskArray = [ToDoList]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let tasks = category?.tasks {
             self.taskArray = tasks.allObjects as! [ToDoList]
         }
-        
         let taskArrayCount = taskArray.count
         if taskArrayCount == 0 {
             addNewTask()
@@ -92,7 +86,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             cell.checkButton.setImage(#imageLiteral(resourceName: "check- empty"), for: .normal)
         }
-        
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -151,7 +144,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             do {
                 try managedContext.save()
                 self.taskArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
                 print("saved!")
             } catch let error as NSError  {
                 print("Could not save \(error), \(error.userInfo)")

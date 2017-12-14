@@ -11,14 +11,12 @@ import CoreData
 
 class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    //    var defaultData = [CaterogyData]()
     var isEditAction: Bool = false
     var isAddAction: Bool = false
     let colorLabel = ["yellow", "blue", "green"]
     var categoryArray = [Category]()
     
     @IBOutlet weak var categoryTableView: UITableView!
-    
     @IBAction func addButton(_ sender: UIButton) {
         self.isAddAction = true
         
@@ -59,10 +57,6 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)
         //Mark - without text on back button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        //        for defaultItem: CaterogyData in DefaultCaterogy.whatToTake {
-        //            defaultData.append(defaultItem)
-        //        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,12 +77,11 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let category = categoryArray[indexPath.row]
         let categoryName = category.title
         let categoryImage = category.imageName
+        
         cell.categoryLabel.text = categoryName
-        
         cell.categoryColor.image = UIImage(named: categoryImage!)
-        
-        
         cell.inputCategory.isHidden = true
+        
         return cell
     }
     
@@ -111,6 +104,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("Could not save \(error), \(error.userInfo)")
             }
         }
+        
         let edit = UITableViewRowAction(style: .default, title: "Edit") {(action, indexPath) in
                         self.isEditAction = true
                         let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
@@ -142,18 +136,18 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.isEditing = false
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            
             let category = categoryArray[categoryArray.count - 1]
+            
             category.title = cell.inputCategory.text!
             appDelegate.saveContext()
             self.categoryTableView.reloadData()
             isAddAction = false
             
         } else if isEditAction == true {
-                        let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
-                        let table: UITableView = cell.superview as! UITableView
-                        let textFieldIndexPath = table.indexPath(for: cell)
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let cell: CategoryTableViewCell = textField.superview?.superview as! CategoryTableViewCell
+            let table: UITableView = cell.superview as! UITableView
+            let textFieldIndexPath = table.indexPath(for: cell)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let category = categoryArray[(textFieldIndexPath?.row)!]
             category.title = cell.inputCategory.text!
             appDelegate.saveContext()
