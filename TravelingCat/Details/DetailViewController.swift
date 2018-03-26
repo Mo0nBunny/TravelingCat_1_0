@@ -14,6 +14,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var category: Category?
     var taskArray = [ToDoList]()
     
+    lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBAction func checkButtonTapped(_ sender: UIButton) {
@@ -21,7 +24,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell: DetailTableViewCell = sender.superview?.superview as! DetailTableViewCell
         let table: UITableView = cell.superview as! UITableView
         let buttonIndexPath = table.indexPath(for: cell)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let task = taskArray[(buttonIndexPath?.row)!]
         var taskIsDone: Bool
         
@@ -32,7 +35,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.isDone = taskIsDone
         task.category = category
-        appDelegate.saveContext()
+//        appDelegate.saveContext()
+        appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
     }
     
@@ -96,12 +100,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let textFieldIndexPath = table.indexPath(for: cell)
         
         cell.isEditing = false
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let task = taskArray[(textFieldIndexPath?.row)!]
         task.task = cell.inputTask.text!
         task.isDone = false
         task.category = category
-        appDelegate.saveContext()
+//        appDelegate.saveContext()
+        appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
         
         addNewTask()
@@ -119,14 +124,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func addNewTask() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let context = appDelegate.coreDataStack.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "ToDoList", in: context)
         let task = ToDoList(entity: entity!, insertInto: context)
         task.task = ""
         task.isDone = false
         task.category = category
-        appDelegate.saveContext()
+//        appDelegate.saveContext()
+        appDelegate.coreDataStack.saveContext()
         taskArray.append(task)
         
         self.taskTableView.reloadData()
@@ -138,11 +145,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedContext = appDelegate.persistentContainer.viewContext
-            managedContext.delete(self.taskArray[indexPath.row])
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let managedContext = appDelegate.persistentContainer.viewContext
+//            let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
+//            managedContext.delete(self.taskArray[indexPath.row])
+            context.delete(self.taskArray[indexPath.row])
             do {
-                try managedContext.save()
+//                try managedContext.save()
+                try context.save()
                 self.taskArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 print("saved!")

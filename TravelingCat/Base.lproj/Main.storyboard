@@ -16,6 +16,9 @@
             <string>AppleSDGothicNeo-Medium</string>
             <string>AppleSDGothicNeo-Regular</string>
         </array>
+        <array key="Zapfino.ttf">
+            <string>Zapfino</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Detail View Controller-->
@@ -229,6 +232,54 @@
             </objects>
             <point key="canvasLocation" x="97" y="-442"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9a2-U2-xuf">
+            <objects>
+                <viewController id="2X3-h8-QbL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5T1-5g-6Ss">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background#1" translatesAutoresizingMaskIntoConstraints="NO" id="24O-P2-X2I">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-zY-Swa">
+                                <rect key="frame" x="82" y="617" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                <state key="normal" title="Sing Up">
+                                    <color key="titleColor" red="0.97646397350000003" green="0.97646433119999998" blue="0.9764626622" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-3G-Kx2">
+                                <rect key="frame" x="82" y="549" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="logIn button">
+                                    <color key="titleColor" red="0.97646397352218628" green="0.97646433115005493" blue="0.97646266222000122" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6P-60-Qds">
+                                <rect key="frame" x="118" y="459" width="196" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ght-lx-1x9" firstAttribute="bottom" secondItem="24O-P2-X2I" secondAttribute="bottom" id="03V-0a-b3x"/>
+                            <constraint firstItem="24O-P2-X2I" firstAttribute="top" secondItem="5T1-5g-6Ss" secondAttribute="top" id="C3p-oh-b55"/>
+                            <constraint firstItem="Ght-lx-1x9" firstAttribute="trailing" secondItem="24O-P2-X2I" secondAttribute="trailing" id="CDs-CP-efa"/>
+                            <constraint firstItem="24O-P2-X2I" firstAttribute="leading" secondItem="Ght-lx-1x9" secondAttribute="leading" id="tfu-By-IKS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ght-lx-1x9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3UM-vl-2H9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1678.2608695652175" y="-110.05434782608697"/>
+        </scene>
         <!--Split View Controller-->
         <scene sceneID="s87-JB-xrv">
             <objects>
@@ -263,8 +314,10 @@
     </scenes>
     <resources>
         <image name="add button" width="90" height="90"/>
+        <image name="background#1" width="375" height="667"/>
         <image name="background2" width="1154" height="837"/>
         <image name="check- empty" width="21" height="21"/>
+        <image name="logIn button" width="250" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vq4-Fv-5ra"/>
