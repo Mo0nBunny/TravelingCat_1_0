@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoList" inverseName="category" inverseEntity="ToDoList" syncable="YES"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="categories" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="ToDoList" representedClassName="ToDoList" syncable="YES">
         <attribute name="isDone" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="task" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="tasks" inverseEntity="Category" syncable="YES"/>
     </entity>
+    <entity name="Trip" representedClassName="Trip" syncable="YES">
+        <attribute name="tripDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tripImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tripTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="trip" inverseEntity="Category" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Category" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Category" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="ToDoList" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Trip" positionX="-63" positionY="27" width="128" height="105"/>
     </elements>
 </model>

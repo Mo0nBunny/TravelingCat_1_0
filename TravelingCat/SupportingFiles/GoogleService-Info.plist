@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>545651141335-oo3piq30bn2phvaq0ghq36ekndihgp6q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.545651141335-oo3piq30bn2phvaq0ghq36ekndihgp6q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyADeQOJo8l5y5BzXnyNNO_zkzt4U2Iyz_w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>545651141335</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sirin.TravelingCat</string>
+	<key>PROJECT_ID</key>
+	<string>travelingcat-773cb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>travelingcat-773cb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:545651141335:ios:b153d34147c8742d</string>
+	<key>DATABASE_URL</key>
+	<string>https://travelingcat-773cb.firebaseio.com</string>
+</dict>
+</plist>
