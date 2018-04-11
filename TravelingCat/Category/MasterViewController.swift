@@ -18,13 +18,14 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isAddAction: Bool = false
     let colorLabel = ["yellow", "blue", "green"]
     var categoryArray = [Category]()
-    var trip: Trip?
+    var trip: Trip? // for relationship to trip
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var categoryTableView: UITableView!
     
+    @IBOutlet weak var cancelBttn: UIBarButtonItem!
     @IBAction func addButton(_ sender: UIButton) {
         self.isAddAction = true
         
@@ -34,7 +35,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let category = Category(entity: entity!, insertInto: context)
         category.title = "New Category"
         category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
-        category.trip = trip
+        category.trip = trip // for relationship to trip
         appDelegate.coreDataStack.saveContext()
         categoryArray.append(category)
         self.categoryTableView.reloadData()
@@ -58,16 +59,16 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if let categories = trip?.categories {
             self.categoryArray = categories.allObjects as! [Category]
-        }
+        }  // for relationship to trip
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            categoryArray = results as! [Category]
-        } catch let error as NSError {
-            print("Fetching Error: \(error.userInfo)")
-        }
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+//        
+//        do {
+//            let results = try context.fetch(fetchRequest)
+//            categoryArray = results as! [Category]
+//        } catch let error as NSError {
+//            print("Fetching Error: \(error.userInfo)")
+//        }
     }
     
     override func viewDidLoad() {
@@ -75,7 +76,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)
         //Mark - without text on back button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
+        cancelBttn.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!], for: UIControlState.normal)
         
         //MARK: - Keyboard issue
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
@@ -166,7 +167,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let category = categoryArray[categoryArray.count - 1]
             category.title = cell.inputCategory.text!
-            category.trip = trip
+            category.trip = trip // for relationship to trip
             appDelegate.coreDataStack.saveContext()
             self.categoryTableView.reloadData()
             
@@ -179,7 +180,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let category = categoryArray[(textFieldIndexPath?.row)!]
             category.title = cell.inputCategory.text!
-            category.trip = trip
+            category.trip = trip // for relationship to trip
             appDelegate.coreDataStack.saveContext()
             self.categoryTableView.reloadData()
 

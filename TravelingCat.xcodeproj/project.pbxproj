@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		32D9ED5CF41859755D7D34EA /* Pods_TravelingCat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */; };
 		8309704D2068FB900038ADA9 /* TripDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8309704C2068FB900038ADA9 /* TripDetailTableViewController.swift */; };
+		8315F407207CF6AD00EFAC83 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8315F406207CF6AD00EFAC83 /* NotificationCenter.framework */; };
+		8315F40A207CF6AD00EFAC83 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315F409207CF6AD00EFAC83 /* TodayViewController.swift */; };
+		8315F40D207CF6AD00EFAC83 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8315F40B207CF6AD00EFAC83 /* MainInterface.storyboard */; };
+		8315F411207CF6AD00EFAC83 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8315F405207CF6AD00EFAC83 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8315F417207CF73600EFAC83 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315F416207CF73600EFAC83 /* WidgetTableViewCell.swift */; };
+		8315F418207CF8B300EFAC83 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8347930F2060D52900AF8F4A /* CoreDataStack.swift */; };
+		8315F419207CF8B700EFAC83 /* Trip+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F22073CA6800BA4035 /* Trip+CoreDataClass copy.swift */; };
+		8315F41A207CF8B900EFAC83 /* Trip+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F32073CA6900BA4035 /* Trip+CoreDataProperties copy.swift */; };
+		8315F41D207D022000EFAC83 /* TravelingCat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB261FD914D000DDACED /* TravelingCat.xcdatamodeld */; };
+		8315F41E207D022D00EFAC83 /* Category+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F42073CA6900BA4035 /* Category+CoreDataClass copy.swift */; };
+		8315F41F207D022F00EFAC83 /* Category+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F52073CA6900BA4035 /* Category+CoreDataProperties copy.swift */; };
+		8315F420207D023100EFAC83 /* ToDoList+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F12073CA6800BA4035 /* ToDoList+CoreDataProperties copy.swift */; };
+		8315F421207D023400EFAC83 /* ToDoList+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F62073CA6900BA4035 /* ToDoList+CoreDataClass copy.swift */; };
+		8315F422207D02ED00EFAC83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8318BB291FD914D000DDACED /* Assets.xcassets */; };
 		8318BB201FD914D000DDACED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB1F1FD914D000DDACED /* AppDelegate.swift */; };
 		8318BB251FD914D000DDACED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8318BB231FD914D000DDACED /* Main.storyboard */; };
 		8318BB281FD914D000DDACED /* TravelingCat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB261FD914D000DDACED /* TravelingCat.xcdatamodeld */; };
@@ -20,6 +34,8 @@
 		8318BB3D1FD920BD00DDACED /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB3C1FD920BD00DDACED /* CategoryData.swift */; };
 		8318BB411FD9225A00DDACED /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB401FD9225A00DDACED /* CategoryTableViewCell.swift */; };
 		8318BB451FD93BDD00DDACED /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB441FD93BDD00DDACED /* DetailTableViewCell.swift */; };
+		833673CD207A218500ECC8F7 /* DatePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CC207A218500ECC8F7 /* DatePopupViewController.swift */; };
+		833673CF207A28D700ECC8F7 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */; };
 		833D14C9207245BE00BA4035 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833D14C8207245BE00BA4035 /* GoogleService-Info.plist */; };
 		833D14CC2073682900BA4035 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14CB2073682900BA4035 /* AuthenticationManager.swift */; };
 		833D14F72073CA6900BA4035 /* ToDoList+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F12073CA6800BA4035 /* ToDoList+CoreDataProperties copy.swift */; };
@@ -34,13 +50,46 @@
 		8367F8C6206A3C970074E607 /* TripDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C5206A3C970074E607 /* TripDetailTableViewCell.swift */; };
 		8367F8C9206A68640074E607 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C8206A68640074E607 /* MainViewController.swift */; };
 		8367F8CB206A73250074E607 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8CA206A73250074E607 /* LogInViewController.swift */; };
+		8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */; };
 		83750565206CA53100A09FBA /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750564206CA53100A09FBA /* SingUpViewController.swift */; };
 		83750567206CBB8300A09FBA /* NewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750566206CBB8300A09FBA /* NewTripViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8315F40F207CF6AD00EFAC83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8318BB141FD914D000DDACED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8315F404207CF6AD00EFAC83;
+			remoteInfo = TodayWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8315F415207CF6AD00EFAC83 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8315F411207CF6AD00EFAC83 /* TodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		57966FB6673D8530D9807EB1 /* Pods-TravelingCat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelingCat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelingCat/Pods-TravelingCat.release.xcconfig"; sourceTree = "<group>"; };
 		8309704C2068FB900038ADA9 /* TripDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailTableViewController.swift; sourceTree = "<group>"; };
+		8315F405207CF6AD00EFAC83 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8315F406207CF6AD00EFAC83 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		8315F409207CF6AD00EFAC83 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		8315F40C207CF6AD00EFAC83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8315F40E207CF6AD00EFAC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8315F416207CF73600EFAC83 /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
+		8315F41B207CFA2B00EFAC83 /* TravelingCat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravelingCat.entitlements; sourceTree = "<group>"; };
+		8315F41C207CFB2200EFAC83 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWidget.entitlements; sourceTree = "<group>"; };
 		8318BB1C1FD914D000DDACED /* TravelingCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelingCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8318BB1F1FD914D000DDACED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8318BB241FD914D000DDACED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +103,8 @@
 		8318BB3C1FD920BD00DDACED /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		8318BB401FD9225A00DDACED /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8318BB441FD93BDD00DDACED /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		833673CC207A218500ECC8F7 /* DatePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopupViewController.swift; sourceTree = "<group>"; };
+		833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		833D14C8207245BE00BA4035 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		833D14CB2073682900BA4035 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		833D14F12073CA6800BA4035 /* ToDoList+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoList+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
@@ -68,6 +119,7 @@
 		8367F8C5206A3C970074E607 /* TripDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailTableViewCell.swift; sourceTree = "<group>"; };
 		8367F8C8206A68640074E607 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8367F8CA206A73250074E607 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
 		83750564206CA53100A09FBA /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		83750566206CBB8300A09FBA /* NewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewController.swift; sourceTree = "<group>"; };
 		C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelingCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +127,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8315F402207CF6AD00EFAC83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8315F407207CF6AD00EFAC83 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8318BB191FD914D000DDACED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */,
+				8315F406207CF6AD00EFAC83 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,11 +164,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8315F408207CF6AD00EFAC83 /* TodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				8315F41C207CFB2200EFAC83 /* TodayWidget.entitlements */,
+				8315F409207CF6AD00EFAC83 /* TodayViewController.swift */,
+				8315F40B207CF6AD00EFAC83 /* MainInterface.storyboard */,
+				8315F416207CF73600EFAC83 /* WidgetTableViewCell.swift */,
+				8315F40E207CF6AD00EFAC83 /* Info.plist */,
+			);
+			path = TodayWidget;
+			sourceTree = "<group>";
+		};
 		8318BB131FD914D000DDACED = {
 			isa = PBXGroup;
 			children = (
 				831F75471FDD1AAE00CF2953 /* CoreDataSource */,
 				8318BB1E1FD914D000DDACED /* TravelingCat */,
+				8315F408207CF6AD00EFAC83 /* TodayWidget */,
 				8318BB1D1FD914D000DDACED /* Products */,
 				1FBAD3863A25F255A0F8EC8A /* Pods */,
 				13E4A9A71CC3A71921990FE0 /* Frameworks */,
@@ -118,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				8318BB1C1FD914D000DDACED /* TravelingCat.app */,
+				8315F405207CF6AD00EFAC83 /* TodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +200,7 @@
 		8318BB1E1FD914D000DDACED /* TravelingCat */ = {
 			isa = PBXGroup;
 			children = (
+				8315F41B207CFA2B00EFAC83 /* TravelingCat.entitlements */,
 				8318BB2E1FD914D000DDACED /* Info.plist */,
 				833D14C72072459F00BA4035 /* SupportingFiles */,
 				83750568206CC4FB00A09FBA /* StartMenu */,
@@ -170,11 +246,21 @@
 			path = CoreDataSource;
 			sourceTree = "<group>";
 		};
+		833673D0207A293E00ECC8F7 /* PopupViews */ = {
+			isa = PBXGroup;
+			children = (
+				833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */,
+				833673CC207A218500ECC8F7 /* DatePopupViewController.swift */,
+			);
+			path = PopupViews;
+			sourceTree = "<group>";
+		};
 		833D14C72072459F00BA4035 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				8318BB1F1FD914D000DDACED /* AppDelegate.swift */,
 				8318BB231FD914D000DDACED /* Main.storyboard */,
+				8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */,
 				8318BB291FD914D000DDACED /* Assets.xcassets */,
 				8318BB2B1FD914D000DDACED /* LaunchScreen.storyboard */,
 				833D14C8207245BE00BA4035 /* GoogleService-Info.plist */,
@@ -197,6 +283,7 @@
 				8367F8C2206A30730074E607 /* TripTableViewCell.swift */,
 				8367F8C0206A305D0074E607 /* TripViewController.swift */,
 				83750566206CBB8300A09FBA /* NewTripViewController.swift */,
+				833673D0207A293E00ECC8F7 /* PopupViews */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -224,6 +311,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8315F404207CF6AD00EFAC83 /* TodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8315F414207CF6AD00EFAC83 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
+			buildPhases = (
+				8315F401207CF6AD00EFAC83 /* Sources */,
+				8315F402207CF6AD00EFAC83 /* Frameworks */,
+				8315F403207CF6AD00EFAC83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayWidget;
+			productName = TodayWidget;
+			productReference = 8315F405207CF6AD00EFAC83 /* TodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8318BB1B1FD914D000DDACED /* TravelingCat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8318BB311FD914D000DDACED /* Build configuration list for PBXNativeTarget "TravelingCat" */;
@@ -234,10 +338,12 @@
 				8318BB1A1FD914D000DDACED /* Resources */,
 				DDEFEB23145689071F753E99 /* [CP] Embed Pods Frameworks */,
 				B9A6E4B29203385DA9F8D533 /* [CP] Copy Pods Resources */,
+				8315F415207CF6AD00EFAC83 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8315F410207CF6AD00EFAC83 /* PBXTargetDependency */,
 			);
 			name = TravelingCat;
 			productName = TravelingCat;
@@ -250,13 +356,27 @@
 		8318BB141FD914D000DDACED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Sirin K";
 				TargetAttributes = {
+					8315F404207CF6AD00EFAC83 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					8318BB1B1FD914D000DDACED = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -274,11 +394,21 @@
 			projectRoot = "";
 			targets = (
 				8318BB1B1FD914D000DDACED /* TravelingCat */,
+				8315F404207CF6AD00EFAC83 /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8315F403207CF6AD00EFAC83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8315F422207D02ED00EFAC83 /* Assets.xcassets in Resources */,
+				8315F40D207CF6AD00EFAC83 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8318BB1A1FD914D000DDACED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +483,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8315F401207CF6AD00EFAC83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8315F41A207CF8B900EFAC83 /* Trip+CoreDataProperties copy.swift in Sources */,
+				8315F421207D023400EFAC83 /* ToDoList+CoreDataClass copy.swift in Sources */,
+				8315F41D207D022000EFAC83 /* TravelingCat.xcdatamodeld in Sources */,
+				8315F418207CF8B300EFAC83 /* CoreDataStack.swift in Sources */,
+				8315F40A207CF6AD00EFAC83 /* TodayViewController.swift in Sources */,
+				8315F419207CF8B700EFAC83 /* Trip+CoreDataClass copy.swift in Sources */,
+				8315F420207D023100EFAC83 /* ToDoList+CoreDataProperties copy.swift in Sources */,
+				8315F41F207D022F00EFAC83 /* Category+CoreDataProperties copy.swift in Sources */,
+				8315F417207CF73600EFAC83 /* WidgetTableViewCell.swift in Sources */,
+				8315F41E207D022D00EFAC83 /* Category+CoreDataClass copy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8318BB181FD914D000DDACED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,7 +519,10 @@
 				8318BB281FD914D000DDACED /* TravelingCat.xcdatamodeld in Sources */,
 				8367F8C3206A30730074E607 /* TripTableViewCell.swift in Sources */,
 				834793102060D52900AF8F4A /* CoreDataStack.swift in Sources */,
+				833673CD207A218500ECC8F7 /* DatePopupViewController.swift in Sources */,
+				833673CF207A28D700ECC8F7 /* TimePopupViewController.swift in Sources */,
 				833D14FA2073CA6900BA4035 /* Category+CoreDataClass copy.swift in Sources */,
+				8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */,
 				8367F8C6206A3C970074E607 /* TripDetailTableViewCell.swift in Sources */,
 				833D14CC2073682900BA4035 /* AuthenticationManager.swift in Sources */,
 				8318BB201FD914D000DDACED /* AppDelegate.swift in Sources */,
@@ -386,7 +536,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8315F410207CF6AD00EFAC83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8315F404207CF6AD00EFAC83 /* TodayWidget */;
+			targetProxy = 8315F40F207CF6AD00EFAC83 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		8315F40B207CF6AD00EFAC83 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8315F40C207CF6AD00EFAC83 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		8318BB231FD914D000DDACED /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -406,6 +572,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8315F412207CF6AD00EFAC83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S5B6W9P2F;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sirin.TravelingCat.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8315F413207CF6AD00EFAC83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S5B6W9P2F;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sirin.TravelingCat.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8318BB2F1FD914D000DDACED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -517,7 +723,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8C1B4D4CAADB7AD08C34703 /* Pods-TravelingCat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TravelingCat/TravelingCat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S5B6W9P2F;
 				INFOPLIST_FILE = TravelingCat/Info.plist;
@@ -533,7 +741,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57966FB6673D8530D9807EB1 /* Pods-TravelingCat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TravelingCat/TravelingCat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S5B6W9P2F;
 				INFOPLIST_FILE = TravelingCat/Info.plist;
@@ -548,6 +758,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8315F414207CF6AD00EFAC83 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8315F412207CF6AD00EFAC83 /* Debug */,
+				8315F413207CF6AD00EFAC83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8318BB171FD914D000DDACED /* Build configuration list for PBXProject "TravelingCat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

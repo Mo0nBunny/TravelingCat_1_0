@@ -13,6 +13,8 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var tripColor: UIImageView!
     @IBOutlet weak var tripLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var remindLabel: UILabel!
+    @IBOutlet weak var remindOn: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

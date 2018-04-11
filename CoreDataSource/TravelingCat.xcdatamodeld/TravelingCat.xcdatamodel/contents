@@ -14,12 +14,13 @@
     <entity name="Trip" representedClassName="Trip" syncable="YES">
         <attribute name="tripDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tripImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tripRemind" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="tripTitle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="trip" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="ToDoList" positionX="-54" positionY="9" width="128" height="90"/>
-        <element name="Trip" positionX="-63" positionY="27" width="128" height="105"/>
+        <element name="Trip" positionX="-63" positionY="27" width="128" height="120"/>
     </elements>
 </model>

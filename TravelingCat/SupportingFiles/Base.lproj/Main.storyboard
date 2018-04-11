@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dck-bV-6ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="135"/>
+            <point key="canvasLocation" x="1664" y="160"/>
         </scene>
         <!--What to take-->
         <scene sceneID="hzW-p5-tV9">
@@ -209,15 +209,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MM3-Ra-6ff"/>
                     </view>
-                    <navigationItem key="navigationItem" title="What to take" id="OWr-Es-fDd"/>
+                    <navigationItem key="navigationItem" title="What to take" id="OWr-Es-fDd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7jt-k7-EZR">
+                            <connections>
+                                <segue destination="kTd-JX-xMf" kind="unwind" identifier="closeFromCategory" unwindAction="closeWithSegue:" id="h5a-KK-VSS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addBttn" destination="co9-KO-wfk" id="DRg-kn-NMI"/>
+                        <outlet property="cancelBttn" destination="7jt-k7-EZR" id="9fW-zs-WIp"/>
                         <outlet property="categoryTableView" destination="ifQ-3L-fhv" id="Anw-fW-ekl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqw-nF-lYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kTd-JX-xMf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1665.217391304348" y="-586.14130434782612"/>
+            <point key="canvasLocation" x="1664" y="-586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UrN-dx-VGA">
@@ -297,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UM-vl-2H9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2561" y="-1704"/>
+            <point key="canvasLocation" x="-2620" y="-1710"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="Q1P-rd-c6P">
@@ -391,12 +399,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Stm-iv-7Cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2980" y="-946"/>
+            <point key="canvasLocation" x="-3055" y="-946"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Primary Split View Controller-->
         <scene sceneID="s87-JB-xrv">
             <objects>
-                <splitViewController id="wG7-Nq-1ry" sceneMemberID="viewController">
+                <splitViewController id="wG7-Nq-1ry" customClass="PrimarySplitViewController" customModule="TravelingCat" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="ih9-D0-lrg" kind="relationship" relationship="masterViewController" id="h1W-WN-TwM"/>
                         <segue destination="TzT-CO-H2K" kind="relationship" relationship="detailViewController" id="rYb-uY-xka"/>
@@ -404,7 +412,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVL-z3-zO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213.04347826086959" y="-201.35869565217394"/>
+            <point key="canvasLocation" x="-299" y="-201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5v9-Fa-b5X">
@@ -422,7 +430,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLD-dL-Ylb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="135"/>
+            <point key="canvasLocation" x="790" y="160"/>
         </scene>
         <!--My Trips-->
         <scene sceneID="Eiz-v2-dZ8">
@@ -471,13 +479,32 @@
                                                     <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzq-WF-XMd">
+                                                    <rect key="frame" x="360" y="51" width="34" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="KfY-wI-PzU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind on:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTm-x5-73R">
+                                                    <rect key="frame" x="321" y="29" width="73" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="yzq-WF-XMd" firstAttribute="top" secondItem="iTm-x5-73R" secondAttribute="bottom" constant="4" id="9UT-lR-9fO"/>
                                                 <constraint firstItem="5vK-Vo-c3W" firstAttribute="leading" secondItem="IRG-LR-FmC" secondAttribute="leading" constant="38" id="BTr-r0-Ok0"/>
                                                 <constraint firstItem="5vK-Vo-c3W" firstAttribute="leading" secondItem="GgP-zr-FFs" secondAttribute="trailing" constant="22" id="D3M-1s-PbA"/>
                                                 <constraint firstItem="2Tb-b4-4Xc" firstAttribute="trailing" secondItem="5vK-Vo-c3W" secondAttribute="trailing" id="GsN-Bk-ih9"/>
                                                 <constraint firstAttribute="trailing" secondItem="7EX-ge-sWz" secondAttribute="trailing" id="Q7e-S9-CKY"/>
+                                                <constraint firstItem="yzq-WF-XMd" firstAttribute="trailing" secondItem="IRG-LR-FmC" secondAttribute="trailingMargin" id="R6p-Uy-7Tq"/>
+                                                <constraint firstItem="yzq-WF-XMd" firstAttribute="bottom" secondItem="IRG-LR-FmC" secondAttribute="bottomMargin" id="SrD-eq-8RS"/>
                                                 <constraint firstItem="GgP-zr-FFs" firstAttribute="top" secondItem="IRG-LR-FmC" secondAttribute="top" id="Zvs-p9-doi"/>
+                                                <constraint firstItem="iTm-x5-73R" firstAttribute="trailing" secondItem="IRG-LR-FmC" secondAttribute="trailingMargin" id="a5c-sk-era"/>
                                                 <constraint firstItem="7EX-ge-sWz" firstAttribute="centerY" secondItem="IRG-LR-FmC" secondAttribute="centerY" id="g4h-pd-5dH"/>
                                                 <constraint firstItem="5vK-Vo-c3W" firstAttribute="top" secondItem="IRG-LR-FmC" secondAttribute="topMargin" id="nVn-Qh-l60"/>
                                                 <constraint firstItem="2Tb-b4-4Xc" firstAttribute="bottom" secondItem="IRG-LR-FmC" secondAttribute="bottomMargin" id="we6-wY-sw1"/>
@@ -487,9 +514,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="2Tb-b4-4Xc" id="3mN-ac-8SP"/>
+                                            <outlet property="remindLabel" destination="yzq-WF-XMd" id="l2A-dZ-PlH"/>
+                                            <outlet property="remindOn" destination="iTm-x5-73R" id="tOl-XK-gBV"/>
                                             <outlet property="tripColor" destination="GgP-zr-FFs" id="736-Ps-xBH"/>
                                             <outlet property="tripLabel" destination="5vK-Vo-c3W" id="wxy-kD-wmw"/>
-                                            <segue destination="wG7-Nq-1ry" kind="showDetail" identifier="ShowCategory" id="zJX-IX-KFE"/>
+                                            <segue destination="wG7-Nq-1ry" kind="showDetail" identifier="ShowCategory" id="Efk-qa-2FR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -534,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whc-sh-C8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1844.9275362318842" y="-201.35869565217394"/>
+            <point key="canvasLocation" x="-1897.1014492753625" y="-201.35869565217394"/>
         </scene>
         <!--New Trip View Controller-->
         <scene sceneID="Q39-yg-bW5">
@@ -550,10 +579,10 @@
                                 <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDX-nl-5Fq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter trip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDX-nl-5Fq">
                                 <rect key="frame" x="83" y="134" width="288" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lantern" translatesAutoresizingMaskIntoConstraints="NO" id="mcp-gJ-Lds">
@@ -569,32 +598,8 @@
                                 <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjU-ai-exC">
-                                <rect key="frame" x="83" y="219" width="288" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-Je-s8t">
-                                <rect key="frame" x="83" y="304" width="132" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="uIO-5Q-1sK"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4Y-dT-9Q1">
-                                <rect key="frame" x="239" y="304" width="132" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="qTJ-wk-p4F"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-FL-GWF">
-                                <rect key="frame" x="83" y="269" width="100" height="27"/>
+                                <rect key="frame" x="83" y="260.66666666666669" width="100" height="27"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -610,37 +615,69 @@
                                     <action selector="addButtonTapped:" destination="hPv-jt-SJn" eventType="touchUpInside" id="xFn-4f-XOW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dln-Tr-q52">
-                                <rect key="frame" x="239" y="269" width="19" height="27"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIt-hs-3pR">
+                                <rect key="frame" x="83" y="219" width="288" height="21.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="byF-DZ-E6y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbn-0z-Y0z">
+                                <rect key="frame" x="299" y="183" width="72" height="30"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Select Date">
+                                    <color key="titleColor" red="0.6470588235294118" green="0.12941176470588234" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bcu-Z8-nVa" kind="presentation" identifier="ShowDatePicker" modalPresentationStyle="overCurrentContext" id="nyt-cj-qgF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWI-td-Cpe">
+                                <rect key="frame" x="83" y="296" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="afg-b6-HhA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <color key="textColor" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOc-Gf-FDv">
+                                <rect key="frame" x="297" y="264" width="74" height="30"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Select Time"/>
+                                <connections>
+                                    <segue destination="zjG-Aj-yh7" kind="presentation" identifier="ShowTimePicker" modalPresentationStyle="overCurrentContext" id="112-p9-qz5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.69411764705882351" green="0.24705882352941178" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Wu0-Wn-0JV" firstAttribute="top" secondItem="FDX-nl-5Fq" secondAttribute="bottom" constant="20" id="4w5-Cg-Igz"/>
                             <constraint firstItem="ouE-9U-DF7" firstAttribute="leading" secondItem="PR5-zM-aW8" secondAttribute="leading" constant="310" id="6bU-Wq-WCV"/>
+                            <constraint firstItem="XOc-Gf-FDv" firstAttribute="top" secondItem="Sbn-0z-Y0z" secondAttribute="bottom" constant="51" id="6rT-3c-Mn3"/>
+                            <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="OWI-td-Cpe" secondAttribute="trailing" constant="43" id="A51-8s-4GB"/>
                             <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="FDX-nl-5Fq" secondAttribute="trailing" constant="43" id="AMj-2a-pMA"/>
-                            <constraint firstItem="bfc-Je-s8t" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="AcA-eu-8mC"/>
-                            <constraint firstItem="EjU-ai-exC" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="BFY-Ov-4c1"/>
-                            <constraint firstItem="dln-Tr-q52" firstAttribute="top" secondItem="EjU-ai-exC" secondAttribute="bottom" constant="20" id="QEz-ad-J2n"/>
-                            <constraint firstItem="EjU-ai-exC" firstAttribute="top" secondItem="Wu0-Wn-0JV" secondAttribute="bottom" constant="8" id="SAi-ed-u7c"/>
+                            <constraint firstItem="OWI-td-Cpe" firstAttribute="top" secondItem="0hp-FL-GWF" secondAttribute="bottom" constant="8" id="JoS-BZ-Lv9"/>
                             <constraint firstItem="ouE-9U-DF7" firstAttribute="top" secondItem="PR5-zM-aW8" secondAttribute="top" constant="546" id="Tat-MA-isI"/>
-                            <constraint firstItem="dln-Tr-q52" firstAttribute="leading" secondItem="0hp-FL-GWF" secondAttribute="trailing" constant="56" id="V8G-yC-9Cd"/>
-                            <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="EjU-ai-exC" secondAttribute="trailing" constant="43" id="V8O-Ti-YNF"/>
-                            <constraint firstItem="F4Y-dT-9Q1" firstAttribute="top" secondItem="dln-Tr-q52" secondAttribute="bottom" constant="8" id="WKv-hu-jMJ"/>
+                            <constraint firstItem="0hp-FL-GWF" firstAttribute="top" secondItem="CIt-hs-3pR" secondAttribute="bottom" constant="20" id="XCQ-2R-nZ3"/>
+                            <constraint firstItem="OWI-td-Cpe" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="ZiK-dg-hwF"/>
                             <constraint firstItem="FDX-nl-5Fq" firstAttribute="top" secondItem="zXv-gh-WMn" secondAttribute="bottom" constant="8" id="Zrs-Nw-eIN"/>
                             <constraint firstItem="mcp-gJ-Lds" firstAttribute="top" secondItem="PR5-zM-aW8" secondAttribute="top" id="cBf-IZ-sOM"/>
+                            <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="XOc-Gf-FDv" secondAttribute="trailing" constant="43" id="dkr-mW-xvd"/>
                             <constraint firstItem="mcp-gJ-Lds" firstAttribute="leading" secondItem="PR5-zM-aW8" secondAttribute="leading" constant="7" id="eFG-bh-zwe"/>
                             <constraint firstItem="zXv-gh-WMn" firstAttribute="top" secondItem="PR5-zM-aW8" secondAttribute="top" constant="35" id="fEV-Lh-WfX"/>
                             <constraint firstItem="FDX-nl-5Fq" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="lbo-W0-5k6"/>
-                            <constraint firstItem="F4Y-dT-9Q1" firstAttribute="leading" secondItem="bfc-Je-s8t" secondAttribute="trailing" constant="24" id="oJG-JV-6gd"/>
+                            <constraint firstItem="CIt-hs-3pR" firstAttribute="top" secondItem="Wu0-Wn-0JV" secondAttribute="bottom" constant="8" id="mos-Tv-NcL"/>
+                            <constraint firstItem="Sbn-0z-Y0z" firstAttribute="top" secondItem="FDX-nl-5Fq" secondAttribute="bottom" constant="19" id="ng4-gE-O5Z"/>
                             <constraint firstItem="zXv-gh-WMn" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="sfH-NG-oAJ"/>
-                            <constraint firstItem="0hp-FL-GWF" firstAttribute="top" secondItem="EjU-ai-exC" secondAttribute="bottom" constant="20" id="vDI-B1-acC"/>
+                            <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="CIt-hs-3pR" secondAttribute="trailing" constant="43" id="uMs-Ln-MTN"/>
                             <constraint firstItem="0hp-FL-GWF" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="vJu-Qj-Hao"/>
                             <constraint firstItem="Wu0-Wn-0JV" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="wNX-gv-nGk"/>
-                            <constraint firstItem="bfc-Je-s8t" firstAttribute="top" secondItem="0hp-FL-GWF" secondAttribute="bottom" constant="8" id="xZB-H6-dO6"/>
+                            <constraint firstItem="CIt-hs-3pR" firstAttribute="leading" secondItem="mcp-gJ-Lds" secondAttribute="trailing" constant="8" id="wU5-LO-mH8"/>
+                            <constraint firstItem="PR5-zM-aW8" firstAttribute="trailing" secondItem="Sbn-0z-Y0z" secondAttribute="trailing" constant="43" id="wz7-PH-ttF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PR5-zM-aW8"/>
                     </view>
@@ -653,14 +690,167 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="ouE-9U-DF7" id="yR9-ad-dlN"/>
-                        <outlet property="dateTextField" destination="EjU-ai-exC" id="Q8J-Vb-lxI"/>
+                        <outlet property="cancelButton" destination="uwb-za-JfB" id="Wy0-6q-gBh"/>
+                        <outlet property="dateLabel" destination="CIt-hs-3pR" id="ZtV-ni-QY4"/>
+                        <outlet property="remindDate" destination="OWI-td-Cpe" id="AWN-Vo-n1V"/>
                         <outlet property="tripTextField" destination="FDX-nl-5Fq" id="neT-1L-NK5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1l-6i-uLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fn8-q7-T8r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-939.13043478260875" y="531.52173913043487"/>
+            <point key="canvasLocation" x="-1897.1014492753625" y="1468.2065217391305"/>
+        </scene>
+        <!--Time Popup View Controller-->
+        <scene sceneID="htf-2F-FEy">
+            <objects>
+                <viewController id="zjG-Aj-yh7" customClass="TimePopupViewController" customModule="TravelingCat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Aq-Fe-NBw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4w-KO-81k">
+                                <rect key="frame" x="52" y="255" width="310" height="226"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remain on:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbS-Bu-CEc">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="40"/>
+                                        <color key="backgroundColor" red="0.64705882349999999" green="0.12941176469999999" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8Ji-ic-pmE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="ApR-37-vzA">
+                                        <rect key="frame" x="0.0" y="40" width="310" height="148"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="544877774.25770402">
+                                            <!--2018-04-08 10:56:14 +0000-->
+                                        </date>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="536495400">
+                                            <!--2018-01-01 10:30:00 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxf-nl-BWi">
+                                        <rect key="frame" x="138" y="188" width="34" height="30"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.64705882349999999" green="0.12941176469999999" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="zjG-Aj-yh7" eventType="touchUpInside" id="Uqu-DQ-lcP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Zxf-nl-BWi" secondAttribute="bottom" constant="8" id="1GE-JZ-bq5"/>
+                                    <constraint firstItem="Zxf-nl-BWi" firstAttribute="centerX" secondItem="M4w-KO-81k" secondAttribute="centerX" id="BLN-Vn-tDv"/>
+                                    <constraint firstAttribute="trailing" secondItem="ApR-37-vzA" secondAttribute="trailing" id="Bj9-4q-kxc"/>
+                                    <constraint firstItem="ApR-37-vzA" firstAttribute="top" secondItem="hbS-Bu-CEc" secondAttribute="bottom" id="C0d-v3-0Xa"/>
+                                    <constraint firstItem="hbS-Bu-CEc" firstAttribute="top" secondItem="M4w-KO-81k" secondAttribute="top" id="LtQ-iV-7ks"/>
+                                    <constraint firstAttribute="width" secondItem="M4w-KO-81k" secondAttribute="height" multiplier="155:113" id="MUL-It-DtR"/>
+                                    <constraint firstAttribute="height" constant="226" id="TX6-Ec-y8Z"/>
+                                    <constraint firstItem="hbS-Bu-CEc" firstAttribute="leading" secondItem="M4w-KO-81k" secondAttribute="leading" id="dJ6-Ys-NaZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="hbS-Bu-CEc" secondAttribute="trailing" id="fiq-LV-v37"/>
+                                    <constraint firstItem="ApR-37-vzA" firstAttribute="leading" secondItem="M4w-KO-81k" secondAttribute="leading" id="i0h-eg-gqH"/>
+                                    <constraint firstItem="Zxf-nl-BWi" firstAttribute="leading" secondItem="M4w-KO-81k" secondAttribute="leading" constant="138" id="vpR-pX-13a"/>
+                                    <constraint firstItem="ApR-37-vzA" firstAttribute="bottom" secondItem="Zxf-nl-BWi" secondAttribute="bottom" constant="-30" id="yVN-rR-QRq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71673410400000004" green="0.71673410400000004" blue="0.71673410400000004" alpha="0.50409353599999995" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="bWd-HQ-bRh" firstAttribute="trailing" secondItem="M4w-KO-81k" secondAttribute="trailing" constant="52" id="hpy-vm-qfb"/>
+                            <constraint firstItem="M4w-KO-81k" firstAttribute="centerY" secondItem="9Aq-Fe-NBw" secondAttribute="centerY" id="qvC-vU-ZBg"/>
+                            <constraint firstItem="M4w-KO-81k" firstAttribute="leading" secondItem="bWd-HQ-bRh" secondAttribute="leading" constant="52" id="txs-1i-15I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bWd-HQ-bRh"/>
+                    </view>
+                    <connections>
+                        <outlet property="remindLabel" destination="hbS-Bu-CEc" id="CAI-4g-odF"/>
+                        <outlet property="saveButton" destination="Zxf-nl-BWi" id="oMy-KZ-H0Y"/>
+                        <outlet property="timePicker" destination="ApR-37-vzA" id="3pm-t6-vzC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTi-DR-R0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1146.376811594203" y="1834.2391304347827"/>
+        </scene>
+        <!--Date Popup View Controller-->
+        <scene sceneID="Pz9-A6-kom">
+            <objects>
+                <viewController id="bcu-Z8-nVa" customClass="DatePopupViewController" customModule="TravelingCat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rwT-tl-q69">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTu-0n-m8w">
+                                <rect key="frame" x="52" y="255" width="310" height="226"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI3-uu-7Ni">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="40"/>
+                                        <color key="backgroundColor" red="0.6470588235294118" green="0.12941176470588234" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="daM-P4-vgD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="dQY-Ez-bcP">
+                                        <rect key="frame" x="0.0" y="40" width="310" height="148"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="544873752.19047594">
+                                            <!--2018-04-08 09:49:12 +0000-->
+                                        </date>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="536495400">
+                                            <!--2018-01-01 10:30:00 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-Zw-iHg">
+                                        <rect key="frame" x="120" y="188" width="70" height="30"/>
+                                        <state key="normal" title="Save Date">
+                                            <color key="titleColor" red="0.69411764710000001" green="0.2470588235" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveDateTapped:" destination="bcu-Z8-nVa" eventType="touchUpInside" id="iQa-Xm-1kz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HI3-uu-7Ni" firstAttribute="leading" secondItem="oTu-0n-m8w" secondAttribute="leading" id="3R5-Zq-hnc"/>
+                                    <constraint firstItem="9cx-Zw-iHg" firstAttribute="top" secondItem="dQY-Ez-bcP" secondAttribute="bottom" id="HMi-NR-5za"/>
+                                    <constraint firstItem="9cx-Zw-iHg" firstAttribute="bottom" secondItem="oTu-0n-m8w" secondAttribute="bottomMargin" id="IMl-pb-NZF"/>
+                                    <constraint firstAttribute="trailing" secondItem="dQY-Ez-bcP" secondAttribute="trailing" id="IUU-W8-tkW"/>
+                                    <constraint firstAttribute="height" constant="226" id="MVw-9U-qyl"/>
+                                    <constraint firstItem="HI3-uu-7Ni" firstAttribute="top" secondItem="oTu-0n-m8w" secondAttribute="top" id="SUi-Cs-6eE"/>
+                                    <constraint firstItem="9cx-Zw-iHg" firstAttribute="centerX" secondItem="oTu-0n-m8w" secondAttribute="centerX" id="TFe-WQ-y4x"/>
+                                    <constraint firstAttribute="trailing" secondItem="HI3-uu-7Ni" secondAttribute="trailing" id="ZqM-cJ-IK1"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9cx-Zw-iHg" secondAttribute="trailing" id="c8D-di-jC9"/>
+                                    <constraint firstItem="dQY-Ez-bcP" firstAttribute="leading" secondItem="oTu-0n-m8w" secondAttribute="leading" id="gUV-YU-rUv"/>
+                                    <constraint firstAttribute="width" secondItem="oTu-0n-m8w" secondAttribute="height" multiplier="155:113" id="ifd-JI-Bww"/>
+                                    <constraint firstItem="dQY-Ez-bcP" firstAttribute="top" secondItem="HI3-uu-7Ni" secondAttribute="bottom" id="sjF-Yw-Pbt"/>
+                                    <constraint firstItem="9cx-Zw-iHg" firstAttribute="leading" secondItem="oTu-0n-m8w" secondAttribute="leading" constant="120" id="yJR-KY-L5d"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71673410404757187" green="0.71673410404757187" blue="0.71673410404757187" alpha="0.50409353595890416" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="oTu-0n-m8w" firstAttribute="centerY" secondItem="rwT-tl-q69" secondAttribute="centerY" id="1Qa-F5-enS"/>
+                            <constraint firstItem="fXT-Mf-ljt" firstAttribute="trailing" secondItem="oTu-0n-m8w" secondAttribute="trailing" constant="52" id="9Mc-wt-Yea"/>
+                            <constraint firstItem="oTu-0n-m8w" firstAttribute="leading" secondItem="fXT-Mf-ljt" secondAttribute="leading" constant="52" id="cy9-3R-XDb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fXT-Mf-ljt"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="HI3-uu-7Ni" id="qnn-3V-tBX"/>
+                        <outlet property="datePicker" destination="dQY-Ez-bcP" id="H3W-ip-jCd"/>
+                        <outlet property="saveButton" destination="9cx-Zw-iHg" id="KYM-DY-yg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jgb-Tm-xZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1146" y="1166"/>
         </scene>
         <!--Trip Detail Table View Controller-->
         <scene sceneID="6tO-Nn-5of">
@@ -714,7 +904,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFX-YR-K84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1023" y="-749"/>
+            <point key="canvasLocation" x="-1170" y="-682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ysn-rm-o4B">
@@ -864,7 +1054,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsM-C2-rQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1846.376811594203" y="531.52173913043487"/>
+            <point key="canvasLocation" x="-1897" y="642"/>
         </scene>
     </scenes>
     <resources>
@@ -880,8 +1070,8 @@
         <image name="user icon" width="25" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6zs-Ss-LlF"/>
+        <segue reference="vRr-rV-0Fh"/>
         <segue reference="Vq4-Fv-5ra"/>
-        <segue reference="AdB-eh-idK"/>
+        <segue reference="7dO-W5-qd0"/>
     </inferredMetricsTieBreakers>
 </document>

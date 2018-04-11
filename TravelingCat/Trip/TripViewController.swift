@@ -38,21 +38,6 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Trip")
-//
-//        do {
-//            let results = try context.fetch(fetchRequest)
-//            tripArray = results as! [Trip]
-//        } catch let error as NSError {
-//            print("Fetching Error: \(error.userInfo)")
-//        }
-//    }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripArray.count
     }
@@ -68,9 +53,19 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let tripName = trip.tripTitle
         let tripImage = trip.tripImage
         let tripDate = trip.tripDate
+        let tripReminder = trip.tripRemind
         
         cell.tripLabel.text = tripName
         cell.dateLabel.text = tripDate
+        
+        if  let remindDate = tripReminder {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy"
+            cell.remindLabel.text = dateFormatter.string(from: remindDate)
+        } else {
+            cell.remindLabel.text = ""
+        }
+        
         cell.tripColor.image = UIImage(named: tripImage!)
      
         return cell
@@ -139,26 +134,7 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tripTableView.endUpdates()
     }
     
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-//            self.tripArray.remove(at: indexPath.row)
-//            self.tripTableView.deleteRows(at: [indexPath], with: .fade)
-//            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
-//
-//                let objectToDelete = self.fetchResultsController.object(at: indexPath)
-//                context.delete(objectToDelete)
-//                do {
-//                    try context.save()
-//                } catch {
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-//        return [delete]
-//    }
-    
+
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
       
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
@@ -194,9 +170,12 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "ShowCategory" {
             if let indexPath = self.tripTableView.indexPathForSelectedRow {
                 let trip = tripArray[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! MasterViewController
-                controller.trip = trip
+                let splitVC = segue.destination as! UISplitViewController
+                let navVC = splitVC.childViewControllers.first as! UINavigationController
+                let vc = navVC.childViewControllers.first as! MasterViewController
+                vc.trip = trip
             }
+
         }
     }
 }

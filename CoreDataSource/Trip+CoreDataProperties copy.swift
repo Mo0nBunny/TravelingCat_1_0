@@ -19,6 +19,7 @@ extension Trip {
     @NSManaged public var tripImage: String?
     @NSManaged public var tripTitle: String?
     @NSManaged public var tripDate: String?
+    @NSManaged public var tripRemind: Date?
     @NSManaged public var categories: NSSet?
 
 }
