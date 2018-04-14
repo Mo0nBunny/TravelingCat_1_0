@@ -123,9 +123,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.category = category
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
-        
+        if taskArray[taskArray.count - 1].task != "" {
         addNewTask()
-        
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

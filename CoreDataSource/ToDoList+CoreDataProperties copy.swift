@@ -19,5 +19,6 @@ extension ToDoList {
     @NSManaged public var isDone: Bool
     @NSManaged public var task: String?
     @NSManaged public var category: Category?
+    @NSManaged public var creationDate: Date?
 
 }
