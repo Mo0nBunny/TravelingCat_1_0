@@ -61,9 +61,27 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let categories = trip?.categories {
             self.categoryArray = categories.allObjects as! [Category]
         }
-        
+        if categoryArray.count == 0 {
+            let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)
+            for item: CaterogyData in DefaultCaterogy.whatToTake {
+                let category = Category(entity: entity!, insertInto: context)
+                category.title = item.title
+                category.imageName = item.image
+                category.trip = trip
+                appDelegate.coreDataStack.saveContext()
+                categoryArray.append(category)
+            }
+        }
         categoryTableView.reloadData()
     }
+    
+   
+        
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,10 +181,12 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.isEditing = false
             
             let category = categoryArray[categoryArray.count - 1]
-            category.title = cell.inputCategory.text!
-            category.trip = trip
-            appDelegate.coreDataStack.saveContext()
-            self.categoryTableView.reloadData()
+            if cell.inputCategory.text != "" {
+                category.title = cell.inputCategory.text!
+                category.trip = trip
+                appDelegate.coreDataStack.saveContext()
+            }
+             self.categoryTableView.reloadData()
             
             isAddAction = false
             
@@ -176,9 +196,11 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let textFieldIndexPath = table.indexPath(for: cell)
             
             let category = categoryArray[(textFieldIndexPath?.row)!]
-            category.title = cell.inputCategory.text!
-            category.trip = trip
-            appDelegate.coreDataStack.saveContext()
+            if cell.inputCategory.text != "" {
+                category.title = cell.inputCategory.text!
+                category.trip = trip
+                appDelegate.coreDataStack.saveContext()
+            }
             self.categoryTableView.reloadData()
 
             isEditAction = false

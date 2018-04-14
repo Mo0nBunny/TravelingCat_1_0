@@ -12,7 +12,8 @@ struct DefaultCaterogy {
     static var whatToTake : [CaterogyData] = [
         CaterogyData(title: "Clothes", imageLabel: "yellow"),
         CaterogyData(title: "Medicine", imageLabel: "blue"),
-        CaterogyData(title: "Documents", imageLabel: "green")
+        CaterogyData(title: "Documents", imageLabel: "green"),
+        CaterogyData(title: "Devices", imageLabel: "green")
     ]
 }
 
