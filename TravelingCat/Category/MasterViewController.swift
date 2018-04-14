@@ -230,7 +230,9 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         taskDoneCount += 1
                     }
                 }
-                percent = 100 * taskDoneCount / taskArray.count
+                if taskArray.count > 1 {
+                percent = 100 * taskDoneCount / (taskArray.count - 1)
+                }
             }
         } catch let error as NSError {
             print("Fetching Error: \(error.userInfo)")

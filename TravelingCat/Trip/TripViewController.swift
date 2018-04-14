@@ -87,10 +87,9 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         let fetchRequest: NSFetchRequest<Trip> = Trip.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "tripTitle", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "tripDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-      
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
             fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
              fetchResultsController.delegate = self
@@ -110,9 +109,9 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tripTableView.beginUpdates()
     }
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+
         switch type {
         case .insert: guard let indexPath = newIndexPath else { break }
         tripTableView.insertRows(at: [indexPath], with: .fade)
@@ -125,21 +124,21 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         tripArray = controller.fetchedObjects as! [Trip]
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tripTableView.endUpdates()
     }
     
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-      
+    
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
             self.context.delete(self.tripArray[indexPath.row])
-            
+
             do {
                 try self.context.save()
-                self.tripArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+//                self.tripArray.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
                 print("saved!")
             } catch let error as NSError  {
                 print("Could not save \(error), \(error.userInfo)")
@@ -158,7 +157,7 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
 //        edit.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         delete.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.1764705882, blue: 0.1725490196, alpha: 1)
-        
+
         return [delete]
     }
     

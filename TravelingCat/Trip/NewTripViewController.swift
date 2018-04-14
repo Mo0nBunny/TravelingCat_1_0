@@ -44,8 +44,10 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
             trip.tripImage = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
             
             appDelegate.coreDataStack.saveContext()
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
             print(trip)
             performSegue(withIdentifier: "unwindSegueFromNewTrip", sender: self)
+//             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
     
