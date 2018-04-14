@@ -17,7 +17,6 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var remindDate: UILabel!
  
-    
     let colorLabel = ["yellow", "blue", "green"]
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
@@ -26,7 +25,7 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addButtonTapped(_ sender: Any) {
         
         if tripTextField.text == "" || dateLabel.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Enter trip and date", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Traveling Cat", message: "Enter trip and date", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -50,6 +49,7 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
 class CategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var categoryColor: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var inputCategory: UITextField!
+    @IBOutlet weak var circularProgress: UICircularProgressRingView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

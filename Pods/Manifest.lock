@@ -42,11 +42,13 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - UICircularProgressRing (1.8.4)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - UICircularProgressRing
 
 SPEC CHECKSUMS:
   Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
@@ -59,7 +61,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  UICircularProgressRing: 653b31f7252b2959e8234f5b9ea5f925da755954
 
-PODFILE CHECKSUM: e2d0728a7038be128f2c5279d316229a7ce64a05
+PODFILE CHECKSUM: e8c0c8b4f235a57413bc9ebdba22c97cf17c3f49
 
 COCOAPODS: 1.4.0

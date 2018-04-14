@@ -14,8 +14,6 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var doneLabel: UILabel!
     
-    
- 
     override func awakeFromNib() {
         super.awakeFromNib()
     }

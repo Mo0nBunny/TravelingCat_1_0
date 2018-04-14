@@ -79,29 +79,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         } catch let error as NSError {
             print("Fetching Error: \(error.userInfo)")
         }
-        
-//        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-//        let todayPredicate =  predicateForToday()
-//        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [todayPredicate, predicateNotCompleted()])
-//        let dueDateSort = NSSortDescriptor(key: #keyPath(Task.dueDate), ascending: true)
-//        let titleSort = NSSortDescriptor(key: #keyPath(Task.title), ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
-//        fetchRequest.sortDescriptors = [dueDateSort, titleSort]
-//        do {
-//            todayTasks = try coreDataStack.managedContext.fetch(fetchRequest)
-//        } catch let error as NSError {
-//            os_log("Error when fetch from coreData from Widget: %@", error.debugDescription)
-//            throw error
-//        }
     }
-    
-    //    private func predicateForToday() -> NSPredicate {
-    //        let now = Date()
-    //        let startOfDay = now.startOfDay as NSDate
-    //        let endOfDay = now.endOfDay as NSDate
-    //        return NSPredicate(format: "dueDate >= %@ AND dueDate <= %@ ", startOfDay, endOfDay)
-    //    }
-    
-    
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         do {
             try fetchData()
@@ -116,5 +95,4 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         todayTableView.reloadData()
         completionHandler(NCUpdateResult.newData)
     }
-    
 }

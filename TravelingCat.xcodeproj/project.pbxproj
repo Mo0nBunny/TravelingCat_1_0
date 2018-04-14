@@ -53,6 +53,9 @@
 		8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */; };
 		83750565206CA53100A09FBA /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750564206CA53100A09FBA /* SingUpViewController.swift */; };
 		83750567206CBB8300A09FBA /* NewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750566206CBB8300A09FBA /* NewTripViewController.swift */; };
+		83AAE6262080959200516C33 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE6252080959200516C33 /* ContentViewController.swift */; };
+		83AAE628208095C400516C33 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE627208095C400516C33 /* PageViewController.swift */; };
+		83AAE62C208096A100516C33 /* CustomPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE62B208096A100516C33 /* CustomPresentAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,9 @@
 		8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
 		83750564206CA53100A09FBA /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		83750566206CBB8300A09FBA /* NewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewController.swift; sourceTree = "<group>"; };
+		83AAE6252080959200516C33 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		83AAE627208095C400516C33 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		83AAE62B208096A100516C33 /* CustomPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimator.swift; sourceTree = "<group>"; };
 		C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelingCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C1B4D4CAADB7AD08C34703 /* Pods-TravelingCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelingCat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelingCat/Pods-TravelingCat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,8 +265,10 @@
 			isa = PBXGroup;
 			children = (
 				8318BB1F1FD914D000DDACED /* AppDelegate.swift */,
-				8318BB231FD914D000DDACED /* Main.storyboard */,
 				8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */,
+				8318BB231FD914D000DDACED /* Main.storyboard */,
+				83AAE629208095DF00516C33 /* Page */,
+				83AAE62A208095F000516C33 /* CustomPresent */,
 				8318BB291FD914D000DDACED /* Assets.xcassets */,
 				8318BB2B1FD914D000DDACED /* LaunchScreen.storyboard */,
 				833D14C8207245BE00BA4035 /* GoogleService-Info.plist */,
@@ -306,6 +314,23 @@
 				8367F8C8206A68640074E607 /* MainViewController.swift */,
 			);
 			path = StartMenu;
+			sourceTree = "<group>";
+		};
+		83AAE629208095DF00516C33 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				83AAE6252080959200516C33 /* ContentViewController.swift */,
+				83AAE627208095C400516C33 /* PageViewController.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		83AAE62A208095F000516C33 /* CustomPresent */ = {
+			isa = PBXGroup;
+			children = (
+				83AAE62B208096A100516C33 /* CustomPresentAnimator.swift */,
+			);
+			path = CustomPresent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +490,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TravelingCat/Pods-TravelingCat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -472,6 +498,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -525,12 +552,15 @@
 				8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */,
 				8367F8C6206A3C970074E607 /* TripDetailTableViewCell.swift in Sources */,
 				833D14CC2073682900BA4035 /* AuthenticationManager.swift in Sources */,
+				83AAE628208095C400516C33 /* PageViewController.swift in Sources */,
 				8318BB201FD914D000DDACED /* AppDelegate.swift in Sources */,
 				8318BB3B1FD920AF00DDACED /* DefaultCategory.swift in Sources */,
 				8309704D2068FB900038ADA9 /* TripDetailTableViewController.swift in Sources */,
 				8367F8C9206A68640074E607 /* MainViewController.swift in Sources */,
+				83AAE6262080959200516C33 /* ContentViewController.swift in Sources */,
 				8318BB411FD9225A00DDACED /* CategoryTableViewCell.swift in Sources */,
 				8367F8CB206A73250074E607 /* LogInViewController.swift in Sources */,
+				83AAE62C208096A100516C33 /* CustomPresentAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

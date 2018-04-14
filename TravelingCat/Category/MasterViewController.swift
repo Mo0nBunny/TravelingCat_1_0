@@ -8,24 +8,24 @@
 
 import UIKit
 import CoreData
+import UICircularProgressRing
 
 class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var addBttn: UIButton!
     
-  
     var isEditAction: Bool = false
     var isAddAction: Bool = false
     let colorLabel = ["yellow", "blue", "green"]
     var categoryArray = [Category]()
-    var trip: Trip? // for relationship to trip
+    var trip: Trip?
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var categoryTableView: UITableView!
-    
     @IBOutlet weak var cancelBttn: UIBarButtonItem!
+    
     @IBAction func addButton(_ sender: UIButton) {
         self.isAddAction = true
         
@@ -35,7 +35,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let category = Category(entity: entity!, insertInto: context)
         category.title = "New Category"
         category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
-        category.trip = trip // for relationship to trip
+        category.trip = trip
         appDelegate.coreDataStack.saveContext()
         categoryArray.append(category)
         self.categoryTableView.reloadData()
@@ -49,6 +49,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             newCell.inputCategory.selectAll(nil)
             newCell.inputCategory.isHidden = false
             newCell.inputCategory.delegate = self
+            newCell.circularProgress.setProgress(value: 0, animationDuration: 2.0)
             newCell.inputCategory.becomeFirstResponder()
         }
         
@@ -59,16 +60,9 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if let categories = trip?.categories {
             self.categoryArray = categories.allObjects as! [Category]
-        }  // for relationship to trip
+        }
         
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
-//        
-//        do {
-//            let results = try context.fetch(fetchRequest)
-//            categoryArray = results as! [Category]
-//        } catch let error as NSError {
-//            print("Fetching Error: \(error.userInfo)")
-//        }
+        categoryTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -106,10 +100,13 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let category = categoryArray[indexPath.row]
         let categoryName = category.title
         let categoryImage = category.imageName
+        let percentValue = getPercent(category: category)
         
         cell.categoryLabel.text = categoryName
         cell.categoryColor.image = UIImage(named: categoryImage!)
         cell.inputCategory.isHidden = true
+        cell.circularProgress.setProgress(value: CGFloat(percentValue), animationDuration: 2.0)
+        
         return cell
     }
     
@@ -167,7 +164,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let category = categoryArray[categoryArray.count - 1]
             category.title = cell.inputCategory.text!
-            category.trip = trip // for relationship to trip
+            category.trip = trip
             appDelegate.coreDataStack.saveContext()
             self.categoryTableView.reloadData()
             
@@ -180,7 +177,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let category = categoryArray[(textFieldIndexPath?.row)!]
             category.title = cell.inputCategory.text!
-            category.trip = trip // for relationship to trip
+            category.trip = trip
             appDelegate.coreDataStack.saveContext()
             self.categoryTableView.reloadData()
 
@@ -216,5 +213,28 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categoryTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func getPercent (category: Category) -> Int {
+        var percent = 0
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
+        request.predicate = NSPredicate(format: "category = %@", category)
+        do {
+            var taskArray = [ToDoList]()
+            let results = try context.fetch(request)
+            taskArray = results as! [ToDoList]
+            if taskArray.count != 0 {
+                var taskDoneCount = 0
+                for item in taskArray {
+                    if item.isDone == true {
+                        taskDoneCount += 1
+                    }
+                }
+                percent = 100 * taskDoneCount / taskArray.count
+            }
+        } catch let error as NSError {
+            print("Fetching Error: \(error.userInfo)")
+        }
+        return percent
     }
 }

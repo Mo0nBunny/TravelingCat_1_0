@@ -17,17 +17,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    
-    
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBAction func checkButtonTapped(_ sender: UIButton) {
-        print("button tapped")
         let cell: DetailTableViewCell = sender.superview?.superview as! DetailTableViewCell
         let table: UITableView = cell.superview as! UITableView
         let buttonIndexPath = table.indexPath(for: cell)
-
         let task = taskArray[(buttonIndexPath?.row)!]
         var taskIsDone: Bool
         
@@ -143,7 +139,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func addNewTask() {
-
         let entity = NSEntityDescription.entity(forEntityName: "ToDoList", in: context)
         let task = ToDoList(entity: entity!, insertInto: context)
         task.task = ""
@@ -179,14 +174,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             taskTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height + 40, 0)
         }
     }
     
     @objc func keyboardWillHide(_ notification:Notification) {
-        
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             taskTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         }

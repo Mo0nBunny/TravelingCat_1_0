@@ -153,9 +153,43 @@
                                                         <outlet property="delegate" destination="Q6L-zq-gCw" id="Ka8-j2-C19"/>
                                                     </connections>
                                                 </textField>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMG-bi-zfR" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                                    <rect key="frame" x="330" y="3" width="74" height="74"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="HMG-bi-zfR" secondAttribute="height" multiplier="1:1" id="UYx-S7-kDq"/>
+                                                        <constraint firstAttribute="height" constant="74" id="viz-bx-na0"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="ibRingStyle">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                                            <color key="value" red="0.85640981869999999" green="0.85227257320000005" blue="0.86054706420000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                                            <color key="value" red="0.57647058819999997" green="0.76470588240000004" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                            <color key="value" red="0.36078431370000003" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="HMG-bi-zfR" secondAttribute="trailing" constant="10" id="2XL-GQ-8mW"/>
                                                 <constraint firstItem="Nbd-OP-dgp" firstAttribute="leading" secondItem="EMT-iI-csR" secondAttribute="trailing" constant="18" id="Bt4-Sr-f2A"/>
+                                                <constraint firstItem="HMG-bi-zfR" firstAttribute="leading" secondItem="d2a-3T-rdS" secondAttribute="trailing" constant="6" id="JOf-d2-6VZ"/>
+                                                <constraint firstItem="HMG-bi-zfR" firstAttribute="top" secondItem="TqZ-RD-xSe" secondAttribute="top" constant="3" id="Jyv-hX-Chx"/>
                                                 <constraint firstItem="d2a-3T-rdS" firstAttribute="leading" secondItem="EMT-iI-csR" secondAttribute="trailing" constant="18" id="KxE-qe-6cg"/>
                                                 <constraint firstItem="d2a-3T-rdS" firstAttribute="top" secondItem="TqZ-RD-xSe" secondAttribute="top" id="RiC-Vt-Gdm"/>
                                                 <constraint firstAttribute="bottom" secondItem="d2a-3T-rdS" secondAttribute="bottom" id="bFQ-Ld-DXR"/>
@@ -170,6 +204,7 @@
                                         <connections>
                                             <outlet property="categoryColor" destination="EMT-iI-csR" id="ATe-Hz-8fp"/>
                                             <outlet property="categoryLabel" destination="d2a-3T-rdS" id="zca-yG-Y8E"/>
+                                            <outlet property="circularProgress" destination="HMG-bi-zfR" id="Osj-l1-Zxa"/>
                                             <outlet property="inputCategory" destination="Nbd-OP-dgp" id="CVz-cb-5yd"/>
                                             <segue destination="TzT-CO-H2K" kind="showDetail" identifier="ShowDetail" id="Vq4-Fv-5ra"/>
                                         </connections>
@@ -306,6 +341,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UM-vl-2H9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2620" y="-1710"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="ek3-re-rPN">
+            <objects>
+                <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ABQ-53-qQ6" customClass="PageViewController" customModule="TravelingCat" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZfD-K8-DxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5106" y="-185"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="tUU-ig-XN4">
+            <objects>
+                <viewController storyboardIdentifier="contentViewController" id="yjC-4V-ErR" customClass="ContentViewController" customModule="TravelingCat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b6h-wg-y5D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NfU-Il-JIb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="st5-W2-VcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4296" y="-169"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="Q1P-rd-c6P">
@@ -535,7 +593,7 @@
                                 </constraints>
                                 <state key="normal" image="add button"/>
                                 <connections>
-                                    <segue destination="JW4-z8-LuM" kind="show" id="2ib-Ic-8U8"/>
+                                    <segue destination="JW4-z8-LuM" kind="presentation" identifier="presentController" id="2ib-Ic-8U8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -904,7 +962,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFX-YR-K84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1170" y="-682"/>
+            <point key="canvasLocation" x="-920" y="-1018"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ysn-rm-o4B">
@@ -922,7 +980,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUK-Ut-Lj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2560.8695652173915" y="-201.35869565217394"/>
+            <point key="canvasLocation" x="-2648" y="-201"/>
         </scene>
         <!--Sing Up View Controller-->
         <scene sceneID="CHO-mf-xVz">

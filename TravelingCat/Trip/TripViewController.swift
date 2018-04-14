@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CoreData
 
-class TripViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class TripViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate,  UIViewControllerTransitioningDelegate {
     
     var fetchResultsController: NSFetchedResultsController<Trip>!
     var tripArray: [Trip] = []
@@ -90,15 +90,12 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let sortDescriptor = NSSortDescriptor(key: "tripTitle", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        // getting context
+      
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
-            // creating fetch result controller
             fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
              fetchResultsController.delegate = self
-            // trying to retrieve data
             do {
                 try fetchResultsController.performFetch()
-                // save retrieved data into restaurants array
                 tripArray = fetchResultsController.fetchedObjects!
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -108,7 +105,6 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -175,7 +171,16 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let vc = navVC.childViewControllers.first as! MasterViewController
                 vc.trip = trip
             }
-
+            
         }
+        
+        if segue.identifier == "presentController" {
+            let toViewController = segue.destination as UIViewController
+            toViewController.transitioningDelegate = self
+        }
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CustomPresentAnimator()
     }
 }
