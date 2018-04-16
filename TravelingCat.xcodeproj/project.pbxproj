@@ -37,7 +37,6 @@
 		833673CD207A218500ECC8F7 /* DatePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CC207A218500ECC8F7 /* DatePopupViewController.swift */; };
 		833673CF207A28D700ECC8F7 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */; };
 		833D14C9207245BE00BA4035 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833D14C8207245BE00BA4035 /* GoogleService-Info.plist */; };
-		833D14CC2073682900BA4035 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14CB2073682900BA4035 /* AuthenticationManager.swift */; };
 		833D14F72073CA6900BA4035 /* ToDoList+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F12073CA6800BA4035 /* ToDoList+CoreDataProperties copy.swift */; };
 		833D14F82073CA6900BA4035 /* Trip+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F22073CA6800BA4035 /* Trip+CoreDataClass copy.swift */; };
 		833D14F92073CA6900BA4035 /* Trip+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D14F32073CA6900BA4035 /* Trip+CoreDataProperties copy.swift */; };
@@ -48,10 +47,7 @@
 		8367F8C1206A305D0074E607 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C0206A305D0074E607 /* TripViewController.swift */; };
 		8367F8C3206A30730074E607 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C2206A30730074E607 /* TripTableViewCell.swift */; };
 		8367F8C6206A3C970074E607 /* TripDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C5206A3C970074E607 /* TripDetailTableViewCell.swift */; };
-		8367F8C9206A68640074E607 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8C8206A68640074E607 /* MainViewController.swift */; };
-		8367F8CB206A73250074E607 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367F8CA206A73250074E607 /* LogInViewController.swift */; };
 		8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */; };
-		83750565206CA53100A09FBA /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750564206CA53100A09FBA /* SingUpViewController.swift */; };
 		83750567206CBB8300A09FBA /* NewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750566206CBB8300A09FBA /* NewTripViewController.swift */; };
 		83AAE6262080959200516C33 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE6252080959200516C33 /* ContentViewController.swift */; };
 		83AAE628208095C400516C33 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE627208095C400516C33 /* PageViewController.swift */; };
@@ -109,7 +105,6 @@
 		833673CC207A218500ECC8F7 /* DatePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopupViewController.swift; sourceTree = "<group>"; };
 		833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		833D14C8207245BE00BA4035 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		833D14CB2073682900BA4035 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		833D14F12073CA6800BA4035 /* ToDoList+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoList+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		833D14F22073CA6800BA4035 /* Trip+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		833D14F32073CA6900BA4035 /* Trip+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
@@ -120,10 +115,7 @@
 		8367F8C0206A305D0074E607 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		8367F8C2206A30730074E607 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		8367F8C5206A3C970074E607 /* TripDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailTableViewCell.swift; sourceTree = "<group>"; };
-		8367F8C8206A68640074E607 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8367F8CA206A73250074E607 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8371DF0A207743B60029E9A6 /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
-		83750564206CA53100A09FBA /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		83750566206CBB8300A09FBA /* NewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewController.swift; sourceTree = "<group>"; };
 		83AAE6252080959200516C33 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		83AAE627208095C400516C33 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +201,6 @@
 				8315F41B207CFA2B00EFAC83 /* TravelingCat.entitlements */,
 				8318BB2E1FD914D000DDACED /* Info.plist */,
 				833D14C72072459F00BA4035 /* SupportingFiles */,
-				83750568206CC4FB00A09FBA /* StartMenu */,
 				8367F8C4206A39C90074E607 /* Trip */,
 				8367F8C7206A3CAB0074E607 /* TripDetail */,
 				8318BB431FD93B5900DDACED /* Category */,
@@ -303,17 +294,6 @@
 				8367F8C5206A3C970074E607 /* TripDetailTableViewCell.swift */,
 			);
 			path = TripDetail;
-			sourceTree = "<group>";
-		};
-		83750568206CC4FB00A09FBA /* StartMenu */ = {
-			isa = PBXGroup;
-			children = (
-				83750564206CA53100A09FBA /* SingUpViewController.swift */,
-				8367F8CA206A73250074E607 /* LogInViewController.swift */,
-				833D14CB2073682900BA4035 /* AuthenticationManager.swift */,
-				8367F8C8206A68640074E607 /* MainViewController.swift */,
-			);
-			path = StartMenu;
 			sourceTree = "<group>";
 		};
 		83AAE629208095DF00516C33 /* Page */ = {
@@ -535,7 +515,6 @@
 				833D14FB2073CA6900BA4035 /* Category+CoreDataProperties copy.swift in Sources */,
 				8367F8C1206A305D0074E607 /* TripViewController.swift in Sources */,
 				83750567206CBB8300A09FBA /* NewTripViewController.swift in Sources */,
-				83750565206CA53100A09FBA /* SingUpViewController.swift in Sources */,
 				8318BB3D1FD920BD00DDACED /* CategoryData.swift in Sources */,
 				8318BB451FD93BDD00DDACED /* DetailTableViewCell.swift in Sources */,
 				833D14FC2073CA6900BA4035 /* ToDoList+CoreDataClass copy.swift in Sources */,
@@ -551,15 +530,12 @@
 				833D14FA2073CA6900BA4035 /* Category+CoreDataClass copy.swift in Sources */,
 				8371DF0B207743B60029E9A6 /* PrimarySplitViewController.swift in Sources */,
 				8367F8C6206A3C970074E607 /* TripDetailTableViewCell.swift in Sources */,
-				833D14CC2073682900BA4035 /* AuthenticationManager.swift in Sources */,
 				83AAE628208095C400516C33 /* PageViewController.swift in Sources */,
 				8318BB201FD914D000DDACED /* AppDelegate.swift in Sources */,
 				8318BB3B1FD920AF00DDACED /* DefaultCategory.swift in Sources */,
 				8309704D2068FB900038ADA9 /* TripDetailTableViewController.swift in Sources */,
-				8367F8C9206A68640074E607 /* MainViewController.swift in Sources */,
 				83AAE6262080959200516C33 /* ContentViewController.swift in Sources */,
 				8318BB411FD9225A00DDACED /* CategoryTableViewCell.swift in Sources */,
-				8367F8CB206A73250074E607 /* LogInViewController.swift in Sources */,
 				83AAE62C208096A100516C33 /* CustomPresentAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,7 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S5B6W9P2F;
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sirin.TravelingCat.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -632,7 +608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S5B6W9P2F;
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sirin.TravelingCat.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -646,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -703,6 +680,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

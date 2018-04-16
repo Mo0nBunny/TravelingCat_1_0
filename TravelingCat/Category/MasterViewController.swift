@@ -16,7 +16,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var isEditAction: Bool = false
     var isAddAction: Bool = false
-    let colorLabel = ["yellow", "blue", "green"]
+    let colorLabel = ["yellow", "blue", "green", "violet", "blue2", "green2"]
     var categoryArray = [Category]()
     var trip: Trip?
     
@@ -75,14 +75,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         categoryTableView.reloadData()
     }
     
-   
-        
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)

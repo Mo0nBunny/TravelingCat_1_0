@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "Remind on"; ObjectID = "0hp-FL-GWF"; */
+"0hp-FL-GWF.text" = "Напомнить";
+
+/* Class = "UILabel"; text = "13/12/2018"; ObjectID = "2Tb-b4-4Xc"; */
+"2Tb-b4-4Xc.text" = "13/12/2018";
+
+/* Class = "UILabel"; text = "Trip to Japan"; ObjectID = "5vK-Vo-c3W"; */
+"5vK-Vo-c3W.text" = "Путешествие в Японию";
+
+/* Class = "UIButton"; normalTitle = "Save Date"; ObjectID = "9cx-Zw-iHg"; */
+"9cx-Zw-iHg.normalTitle" = "Сохранить дату";
+
+/* Class = "UITextField"; placeholder = "Enter trip"; ObjectID = "FDX-nl-5Fq"; */
+"FDX-nl-5Fq.placeholder" = "Введите название";
+
+/* Class = "UILabel"; text = "Select Date"; ObjectID = "HI3-uu-7Ni"; */
+"HI3-uu-7Ni.text" = "Выбрать дату";
+
+/* Class = "UINavigationItem"; title = "What to take"; ObjectID = "OWr-Es-fDd"; */
+"OWr-Es-fDd.title" = "Что взять";
+
+/* Class = "UIButton"; normalTitle = "Select Date"; ObjectID = "Sbn-0z-Y0z"; */
+"Sbn-0z-Y0z.normalTitle" = "Выбрать дату";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VHw-wa-fAy"; */
+"VHw-wa-fAy.text" = "Label";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "Wu0-Wn-0JV"; */
+"Wu0-Wn-0JV.text" = "Дата";
+
+/* Class = "UIButton"; normalTitle = "Select Time"; ObjectID = "XOc-Gf-FDv"; */
+"XOc-Gf-FDv.normalTitle" = "Выбрать время";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Zxf-nl-BWi"; */
+"Zxf-nl-BWi.normalTitle" = "Сохранить";
+
+/* Class = "UILabel"; text = "What to take?"; ObjectID = "ah3-qy-xMh"; */
+"ah3-qy-xMh.text" = "Что взять?";
+
+/* Class = "UINavigationItem"; title = "My Trips"; ObjectID = "c1h-A5-LJN"; */
+"c1h-A5-LJN.title" = "Мои путешествия";
+
+/* Class = "UILabel"; text = "Category name"; ObjectID = "d2a-3T-rdS"; */
+"d2a-3T-rdS.text" = "Категория";
+
+/* Class = "UILabel"; text = "Remind at"; ObjectID = "hbS-Bu-CEc"; */
+"hbS-Bu-CEc.text" = "Напомнить";
+
+/* Class = "UILabel"; text = "Remind on:"; ObjectID = "iTm-x5-73R"; */
+"iTm-x5-73R.text" = "Напомнить";
+
+/* Class = "UITextField"; placeholder = "Add new task"; ObjectID = "mal-7s-spR"; */
+"mal-7s-spR.placeholder" = "Добавить пункт";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yzq-WF-XMd"; */
+"yzq-WF-XMd.text" = "Label";
+
+/* Class = "UILabel"; text = "Add new trip"; ObjectID = "zXv-gh-WMn"; */
+"zXv-gh-WMn.text" = "Новое путешествие";

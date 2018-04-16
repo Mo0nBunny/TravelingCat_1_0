@@ -30,14 +30,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX0-7Z-wse">
-                                                    <rect key="frame" x="25" y="4" width="54" height="29"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                                                    <rect key="frame" x="25" y="4" width="49.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
                                                     <color key="textColor" white="0.0" alpha="0.74890303938356162" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXc-Hp-TDu">
-                                                    <rect key="frame" x="25" y="30" width="45" height="24"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                    <rect key="frame" x="25" y="30" width="40.5" height="22"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                     <color key="textColor" white="0.0" alpha="0.74890303940000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -46,6 +46,7 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TXc-Hp-TDu" secondAttribute="trailing" constant="20" symbolic="YES" id="184-fS-hYO"/>
                                                 <constraint firstItem="TXc-Hp-TDu" firstAttribute="top" secondItem="NSo-s2-fNx" secondAttribute="top" constant="30" id="5xf-1f-Wbj"/>
                                                 <constraint firstItem="ZjG-Or-M2m" firstAttribute="top" secondItem="NSo-s2-fNx" secondAttribute="top" id="RjJ-gH-noq"/>
                                                 <constraint firstItem="TXc-Hp-TDu" firstAttribute="leading" secondItem="NSo-s2-fNx" secondAttribute="leading" constant="25" id="Thw-Oo-uN3"/>
@@ -53,6 +54,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZjG-Or-M2m" secondAttribute="trailing" id="idy-LN-VJu"/>
                                                 <constraint firstItem="iX0-7Z-wse" firstAttribute="leading" secondItem="NSo-s2-fNx" secondAttribute="leading" constant="25" id="lMw-ND-5LE"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZjG-Or-M2m" secondAttribute="bottom" id="n3y-7U-2uA"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iX0-7Z-wse" secondAttribute="trailing" constant="20" symbolic="YES" id="nOp-Vu-kJi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

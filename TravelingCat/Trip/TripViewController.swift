@@ -24,19 +24,6 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     }
     
-    @IBAction func logoutTapped(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            AuthenticationManager.sharedInstance.loggedIn = false
-            let presentingViewController = self.presentingViewController
-            self.dismiss(animated: false, completion: {
-                presentingViewController!.dismiss(animated: true, completion: {})
-            })
-        } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError)")
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripArray.count
@@ -99,6 +86,17 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let userDefaults = UserDefaults.standard
+        let introWatched = userDefaults.bool(forKey: "introWatched")
+        guard !introWatched else { return }
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
+            present(pageViewController, animated: true, completion: nil)
         }
     }
 
