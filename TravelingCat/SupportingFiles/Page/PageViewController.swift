@@ -12,7 +12,7 @@ class PageViewController: UIPageViewController {
     
     var headersArray = ["From Dream to Reality", "Be organized"]
     var subheadersArray = ["Create list of your travelings", "Create tasks and check progress "]
-    var imagesArray = ["background#1", "background#2"]
+    var imagesArray = ["Map", "Org"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

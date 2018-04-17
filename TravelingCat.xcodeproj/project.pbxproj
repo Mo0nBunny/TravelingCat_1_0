@@ -52,6 +52,7 @@
 		83AAE6262080959200516C33 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE6252080959200516C33 /* ContentViewController.swift */; };
 		83AAE628208095C400516C33 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE627208095C400516C33 /* PageViewController.swift */; };
 		83AAE62C208096A100516C33 /* CustomPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAE62B208096A100516C33 /* CustomPresentAnimator.swift */; };
+		83E149212084F12400417F81 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E149202084F12400417F81 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		83AAE6252080959200516C33 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		83AAE627208095C400516C33 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		83AAE62B208096A100516C33 /* CustomPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimator.swift; sourceTree = "<group>"; };
+		83E149202084F12400417F81 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelingCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C1B4D4CAADB7AD08C34703 /* Pods-TravelingCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelingCat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelingCat/Pods-TravelingCat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D9ED5CF41859755D7D34EA /* Pods_TravelingCat.framework in Frameworks */,
+				83E149212084F12400417F81 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +150,7 @@
 		13E4A9A71CC3A71921990FE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83E149202084F12400417F81 /* CloudKit.framework */,
 				C9D1392E8378A93D5AB19B68 /* Pods_TravelingCat.framework */,
 				8315F406207CF6AD00EFAC83 /* NotificationCenter.framework */,
 			);
@@ -379,6 +383,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};

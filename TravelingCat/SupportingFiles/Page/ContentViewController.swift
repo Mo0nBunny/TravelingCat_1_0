@@ -45,11 +45,11 @@ class ContentViewController: UIViewController {
         imageView.image = UIImage(named: imageFile)
         pageControl.numberOfPages = 2
         pageControl.currentPage = index
-        pageButton.layer.cornerRadius = 15
+        pageButton.layer.cornerRadius = 10
         pageButton.clipsToBounds = true
         pageButton.layer.borderWidth = 2
-        pageButton.backgroundColor = #colorLiteral(red: 0.7065995932, green: 0.000459628267, blue: 0.1269010901, alpha: 1)
-        pageButton.layer.borderColor = #colorLiteral(red: 0.6470588235, green: 0.137254902, blue: 0.1568627451, alpha: 1)
+        pageButton.backgroundColor = #colorLiteral(red: 0.6470588235, green: 0.1294117647, blue: 0.1568627451, alpha: 1)
+        pageButton.layer.borderColor = #colorLiteral(red: 0.5954908982, green: 0.137254902, blue: 0.1568627451, alpha: 1)
         
         switch index {
         case 0: pageButton.setTitle("Next", for: .normal)
