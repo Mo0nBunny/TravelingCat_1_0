@@ -20,6 +20,7 @@ extension Category {
     @NSManaged public var title: String?
     @NSManaged public var tasks: NSSet?
     @NSManaged public var trip: Trip?
+    @NSManaged public var id: String?
     @NSManaged public var creationDate: Date?
 
 }

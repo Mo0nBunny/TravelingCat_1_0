@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 class NewTripViewController: UIViewController, UITextFieldDelegate {
 
@@ -43,14 +44,26 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
             }
             trip.tripImage = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
             
-//            trip.categories = 
+//            appDelegate.coreDataStack.saveContext()
             
+            let tripRecord = CKRecord(recordType: "Trip")
+            tripRecord["tripImage"] = trip.tripImage as! CKRecordValue
+            tripRecord["tripTitle"] = trip.tripTitle as! CKRecordValue
+            tripRecord["tripDate"] = trip.tripDate as! CKRecordValue
+            tripRecord["tripRemind"] = trip.tripRemind as! CKRecordValue
+            
+            CKContainer.default().privateCloudDatabase.save(tripRecord) { record, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        print("Saved to iCloud")
+                        trip.id = record?.recordID.recordName
+                    }
+                }
+            }
             appDelegate.coreDataStack.saveContext()
-            
-            
-
             performSegue(withIdentifier: "unwindSegueFromNewTrip", sender: self)
-
         }
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UICircularProgressRing
+import CloudKit
 
 class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -36,6 +37,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         category.title = "New Category"
         category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
         category.trip = trip
+        saveToCloud(category: category)
         appDelegate.coreDataStack.saveContext()
         categoryArray.append(category)
         self.categoryTableView.reloadData()
@@ -68,8 +70,9 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 category.title = item.title
                 category.imageName = item.image
                 category.trip = trip
-                appDelegate.coreDataStack.saveContext()
                 categoryArray.append(category)
+                saveToCloud(category: category)
+                appDelegate.coreDataStack.saveContext()
             }
         }
         categoryTableView.reloadData()
@@ -253,5 +256,24 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("Fetching Error: \(error.userInfo)")
         }
         return percent
+    }
+    
+    func saveToCloud(category: Category) {
+        let categoryRecord = CKRecord(recordType: "Category")
+        let reference = CKReference(recordID: CKRecordID(recordName: (trip?.id)!), action: .deleteSelf)
+        categoryRecord["imageName"] = category.imageName as! CKRecordValue
+        categoryRecord["title"] = category.title as! CKRecordValue
+        //                categoryRecord["createDate"] = category.creationDate as! CKRecordValue
+        categoryRecord["trip"] = reference as CKRecordValue
+        CKContainer.default().privateCloudDatabase.save(categoryRecord) { record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else {
+                    print("Category saved to iCloud")
+                    category.id = record?.recordID.recordName
+                }
+            }
+        }
     }
 }

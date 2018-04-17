@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     
@@ -34,6 +35,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.isDone = taskIsDone
         task.category = category
+        saveToCloud(task: task)
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
     }
@@ -121,6 +123,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.task = cell.inputTask.text!
         task.isDone = false
         task.category = category
+        saveToCloud(task: task)
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
         if taskArray[taskArray.count - 1].task != "" {
@@ -144,7 +147,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.task = ""
         task.isDone = false
         task.category = category
-
+//        saveToCloud(task: task)
         appDelegate.coreDataStack.saveContext()
         taskArray.append(task)
         
@@ -182,6 +185,28 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func keyboardWillHide(_ notification:Notification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             taskTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+    
+    func saveToCloud(task: ToDoList) {
+        
+//        @NSManaged public var isDone: Bool
+//        @NSManaged public var task: String?
+//        @NSManaged public var id: String?
+        let toDoListRecord = CKRecord(recordType: "ToDoList")
+        let reference = CKReference(recordID: CKRecordID(recordName: (category?.id)!), action: .deleteSelf)
+        toDoListRecord["isDone"] = task.isDone as! CKRecordValue
+        toDoListRecord["task"] = task.task as! CKRecordValue
+        toDoListRecord["category"] = reference as CKRecordValue
+        CKContainer.default().privateCloudDatabase.save(toDoListRecord) { record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else {
+                    print("Task saved to iCloud")
+                    task.id = record?.recordID.recordName
+                }
+            }
         }
     }
 }
