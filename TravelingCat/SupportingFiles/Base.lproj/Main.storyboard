@@ -776,6 +776,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="syncButton" destination="O4M-s3-hQM" id="ggo-jG-AhH"/>
                         <outlet property="tripTableView" destination="ngi-XO-ast" id="9Wr-lk-W0n"/>
                     </connections>
                 </viewController>
@@ -924,7 +925,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1l-6i-uLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fn8-q7-T8r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1897.1014492753625" y="1468.2065217391305"/>
+            <point key="canvasLocation" x="-1898" y="1507"/>
         </scene>
         <!--Time Popup View Controller-->
         <scene sceneID="htf-2F-FEy">
@@ -1164,7 +1165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsM-C2-rQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1897" y="642"/>
+            <point key="canvasLocation" x="-1898" y="647"/>
         </scene>
     </scenes>
     <resources>

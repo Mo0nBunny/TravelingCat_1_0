@@ -265,7 +265,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let reference = CKReference(recordID: CKRecordID(recordName: (trip?.id)!), action: .deleteSelf)
         categoryRecord["imageName"] = category.imageName as! CKRecordValue
         categoryRecord["title"] = category.title as! CKRecordValue
-        //                categoryRecord["createDate"] = category.creationDate as! CKRecordValue
+  
         categoryRecord["trip"] = reference as CKRecordValue
         CKContainer.default().privateCloudDatabase.save(categoryRecord) { record, error in
             DispatchQueue.main.async {
