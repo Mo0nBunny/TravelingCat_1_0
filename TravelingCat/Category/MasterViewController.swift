@@ -132,8 +132,8 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         addBttn.isHidden = true
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
+            self.deleteRecord(category: self.categoryArray[indexPath.row])
             self.context.delete(self.categoryArray[indexPath.row])
-            
             do {
                 try self.context.save()
                 self.categoryArray.remove(at: indexPath.row)
@@ -180,6 +180,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if cell.inputCategory.text != "" {
                 category.title = cell.inputCategory.text!
                 category.trip = trip
+                updateRecord(category: category)
                 appDelegate.coreDataStack.saveContext()
             }
              self.categoryTableView.reloadData()
@@ -195,6 +196,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if cell.inputCategory.text != "" {
                 category.title = cell.inputCategory.text!
                 category.trip = trip
+                updateRecord(category: category)
                 appDelegate.coreDataStack.saveContext()
             }
             self.categoryTableView.reloadData()
@@ -272,6 +274,48 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 } else {
                     print("Category saved to iCloud")
                     category.id = record?.recordID.recordName
+                }
+            }
+        }
+    }
+    
+    func updateRecord(category: Category) {
+        if let categoryId = category.id {
+            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: categoryId)) { (record, error ) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        if let categoryRecord = record {
+                            categoryRecord.setValue(category.imageName, forKey: "imageName")
+                            categoryRecord.setValue(category.title, forKey: "title")
+                            let operation = CKModifyRecordsOperation(recordsToSave: [categoryRecord], recordIDsToDelete: nil)
+                            CKContainer.default().privateCloudDatabase.add(operation)
+                            print("Category updated")
+                        } else {
+                            self.saveToCloud(category: category)
+                        }
+                    }
+                }
+            }
+        } else {
+            saveToCloud(category: category)
+        }
+    }
+    
+    func deleteRecord(category: Category) {
+        if let categoryId = category.id {
+            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: categoryId)) { (record, error ) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        if let categoryRecord = record {
+                            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [categoryRecord.recordID])
+                            CKContainer.default().privateCloudDatabase.add(operation)
+                            print("Category deleted")
+                        }
+                    }
                 }
             }
         }

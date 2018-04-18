@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreData
+import CloudKit
 
 class TripViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate,  UIViewControllerTransitioningDelegate {
     
@@ -24,6 +25,18 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     }
     
+    @IBAction func syncButtonTapped(_ sender: UIBarButtonItem) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripArray.count
@@ -131,6 +144,7 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
         let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
+            self.deleteRecord(trip: self.tripArray[indexPath.row])
             self.context.delete(self.tripArray[indexPath.row])
 
             do {
@@ -179,5 +193,23 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomPresentAnimator()
+    }
+    
+    func deleteRecord(trip: Trip) {
+        if let tripId = trip.id {
+            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: tripId)) { (record, error ) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        if let tripRecord = record {
+                            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [tripRecord.recordID])
+                            CKContainer.default().privateCloudDatabase.add(operation)
+                            print("Trip deleted")
+                        }
+                    }
+                }
+            }
+        }
     }
 }

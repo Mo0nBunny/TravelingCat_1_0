@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.isDone = taskIsDone
         task.category = category
-        saveToCloud(task: task)
+        updateRecord(task: task)
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
     }
@@ -123,7 +123,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.task = cell.inputTask.text!
         task.isDone = false
         task.category = category
-        saveToCloud(task: task)
+        updateRecord(task: task)
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
         if taskArray[taskArray.count - 1].task != "" {
@@ -147,7 +147,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.task = ""
         task.isDone = false
         task.category = category
-//        saveToCloud(task: task)
         appDelegate.coreDataStack.saveContext()
         taskArray.append(task)
         
@@ -160,9 +159,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            deleteRecord(task: self.taskArray[indexPath.row])
             context.delete(self.taskArray[indexPath.row])
             do {
                 try context.save()
+
                 self.taskArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 print("saved!")
@@ -189,10 +190,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func saveToCloud(task: ToDoList) {
-        
-//        @NSManaged public var isDone: Bool
-//        @NSManaged public var task: String?
-//        @NSManaged public var id: String?
         let toDoListRecord = CKRecord(recordType: "ToDoList")
         let reference = CKReference(recordID: CKRecordID(recordName: (category?.id)!), action: .deleteSelf)
         toDoListRecord["isDone"] = task.isDone as! CKRecordValue
@@ -205,6 +202,48 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 } else {
                     print("Task saved to iCloud")
                     task.id = record?.recordID.recordName
+                }
+            }
+        }
+    }
+    
+    func updateRecord(task: ToDoList) {
+        if let taskId = task.id {
+            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: taskId)) { (record, error ) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        if let taskRecord = record {
+                            taskRecord.setValue(task.isDone, forKey: "isDone")
+                            taskRecord.setValue(task.task, forKey: "task")
+                            let operation = CKModifyRecordsOperation(recordsToSave: [taskRecord], recordIDsToDelete: nil)
+                            CKContainer.default().privateCloudDatabase.add(operation)
+                            print("Task updated")
+                        } else {
+                            self.saveToCloud(task: task)
+                        }
+                    }
+                }
+            }
+        } else {
+            saveToCloud(task: task)
+        }
+    }
+    
+    func deleteRecord(task: ToDoList) {
+        if let taskId = task.id {
+            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: taskId)) { (record, error ) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        if let taskRecord = record {
+                            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [taskRecord.recordID])
+                            CKContainer.default().privateCloudDatabase.add(operation)
+                            print("Task deleted")
+                        }
+                    }
                 }
             }
         }
