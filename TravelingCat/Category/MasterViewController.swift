@@ -261,22 +261,24 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func saveToCloud(category: Category) {
-        let categoryRecord = CKRecord(recordType: "Category")
-        let reference = CKReference(recordID: CKRecordID(recordName: (trip?.id)!), action: .deleteSelf)
-        if let imageValue = category.imageName {
-            categoryRecord["imageName"] = imageValue as CKRecordValue
-        }
-        if let titleValue = category.title {
-            categoryRecord["title"] = titleValue as CKRecordValue
-        }
-        categoryRecord["trip"] = reference as CKRecordValue
-        CKContainer.default().privateCloudDatabase.save(categoryRecord) { record, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                } else {
-                    print("Category saved to iCloud")
-                    category.id = record?.recordID.recordName
+        if let tripId = trip?.id {
+            let categoryRecord = CKRecord(recordType: "Category")
+            let reference = CKReference(recordID: CKRecordID(recordName: tripId), action: .deleteSelf)
+            if let imageValue = category.imageName {
+                categoryRecord["imageName"] = imageValue as CKRecordValue
+            }
+            if let titleValue = category.title {
+                categoryRecord["title"] = titleValue as CKRecordValue
+            }
+            categoryRecord["trip"] = reference as CKRecordValue
+            CKContainer.default().privateCloudDatabase.save(categoryRecord) { record, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        print("Category saved to iCloud")
+                        category.id = record?.recordID.recordName
+                    }
                 }
             }
         }

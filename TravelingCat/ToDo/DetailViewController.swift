@@ -191,20 +191,22 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func saveToCloud(task: ToDoList) {
-        let toDoListRecord = CKRecord(recordType: "ToDoList")
-        let reference = CKReference(recordID: CKRecordID(recordName: (category?.id)!), action: .deleteSelf)
-        toDoListRecord["isDone"] = task.isDone as CKRecordValue
-        if let taskValue = task.task {
-            toDoListRecord["task"] = taskValue as CKRecordValue
-        }
-        toDoListRecord["category"] = reference as CKRecordValue
-        CKContainer.default().privateCloudDatabase.save(toDoListRecord) { record, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                } else {
-                    print("Task saved to iCloud")
-                    task.id = record?.recordID.recordName
+        if let categoryId = category?.id {
+            let toDoListRecord = CKRecord(recordType: "ToDoList")
+            let reference = CKReference(recordID: CKRecordID(recordName: categoryId), action: .deleteSelf)
+            toDoListRecord["isDone"] = task.isDone as CKRecordValue
+            if let taskValue = task.task {
+                toDoListRecord["task"] = taskValue as CKRecordValue
+            }
+            toDoListRecord["category"] = reference as CKRecordValue
+            CKContainer.default().privateCloudDatabase.save(toDoListRecord) { record, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    } else {
+                        print("Task saved to iCloud")
+                        task.id = record?.recordID.recordName
+                    }
                 }
             }
         }
