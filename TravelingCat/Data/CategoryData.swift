@@ -17,12 +17,6 @@ class CaterogyData {
     init(title: String, imageLabel: String?) {
         self.title = title
         self.image = imageLabel
-        
-//        if let imageLabel = imageLabel {
-//            if let img = UIImage(named: imageLabel) {
-//                image = img
-//            }
-//        }
     }
 }
 

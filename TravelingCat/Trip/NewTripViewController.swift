@@ -11,18 +11,18 @@ import CoreData
 import CloudKit
 
 class NewTripViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var tripTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var remindDate: UILabel!
- 
+    
     let colorLabel = ["yellow", "blue", "green"]
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-   
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         
         if tripTextField.text == "" || dateLabel.text == "" {
@@ -36,7 +36,7 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
             // set all the properties
             trip.tripTitle = tripTextField.text
             trip.tripDate = dateLabel.text
-        
+            
             if  let remindDate = remindDate.text {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yy"
@@ -44,13 +44,19 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
             }
             trip.tripImage = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
             
-//            appDelegate.coreDataStack.saveContext()
-            
             let tripRecord = CKRecord(recordType: "Trip")
-            tripRecord["tripImage"] = trip.tripImage as! CKRecordValue
-            tripRecord["tripTitle"] = trip.tripTitle as! CKRecordValue
-            tripRecord["tripDate"] = trip.tripDate as! CKRecordValue
-            tripRecord["tripRemind"] = trip.tripRemind as! CKRecordValue
+            if let tripImageValue = trip.tripImage {
+                tripRecord["tripImage"] = tripImageValue as CKRecordValue
+            }
+            if let tripTitleValue = trip.tripTitle {
+                tripRecord["tripTitle"] = tripTitleValue as CKRecordValue
+            }
+            if let tripDateValue = trip.tripDate {
+                tripRecord["tripDate"] = tripDateValue as CKRecordValue
+            }
+            if let tripRemindValue = trip.tripRemind {
+                tripRecord["tripRemind"] = tripRemindValue as CKRecordValue
+            }
             
             CKContainer.default().privateCloudDatabase.save(tripRecord) { record, error in
                 DispatchQueue.main.async {
@@ -67,14 +73,14 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tripTextField.delegate = self
         cancelButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "AppleSDGothicNeo-Regular", size: 20)!], for: UIControlState.normal)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

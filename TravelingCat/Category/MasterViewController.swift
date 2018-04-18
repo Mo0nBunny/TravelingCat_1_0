@@ -78,7 +78,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         categoryTableView.reloadData()
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -183,7 +183,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 updateRecord(category: category)
                 appDelegate.coreDataStack.saveContext()
             }
-             self.categoryTableView.reloadData()
+            self.categoryTableView.reloadData()
             
             isAddAction = false
             
@@ -200,7 +200,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 appDelegate.coreDataStack.saveContext()
             }
             self.categoryTableView.reloadData()
-
+            
             isEditAction = false
         }
         
@@ -251,7 +251,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                 }
                 if taskArray.count > 1 {
-                percent = 100 * taskDoneCount / (taskArray.count - 1)
+                    percent = 100 * taskDoneCount / (taskArray.count - 1)
                 }
             }
         } catch let error as NSError {
@@ -263,9 +263,12 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func saveToCloud(category: Category) {
         let categoryRecord = CKRecord(recordType: "Category")
         let reference = CKReference(recordID: CKRecordID(recordName: (trip?.id)!), action: .deleteSelf)
-        categoryRecord["imageName"] = category.imageName as! CKRecordValue
-        categoryRecord["title"] = category.title as! CKRecordValue
-  
+        if let imageValue = category.imageName {
+            categoryRecord["imageName"] = imageValue as CKRecordValue
+        }
+        if let titleValue = category.title {
+            categoryRecord["title"] = titleValue as CKRecordValue
+        }
         categoryRecord["trip"] = reference as CKRecordValue
         CKContainer.default().privateCloudDatabase.save(categoryRecord) { record, error in
             DispatchQueue.main.async {

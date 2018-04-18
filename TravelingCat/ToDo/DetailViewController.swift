@@ -147,6 +147,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         task.task = ""
         task.isDone = false
         task.category = category
+        saveToCloud(task: task)
         appDelegate.coreDataStack.saveContext()
         taskArray.append(task)
         
@@ -192,8 +193,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func saveToCloud(task: ToDoList) {
         let toDoListRecord = CKRecord(recordType: "ToDoList")
         let reference = CKReference(recordID: CKRecordID(recordName: (category?.id)!), action: .deleteSelf)
-        toDoListRecord["isDone"] = task.isDone as! CKRecordValue
-        toDoListRecord["task"] = task.task as! CKRecordValue
+        toDoListRecord["isDone"] = task.isDone as CKRecordValue
+        if let taskValue = task.task {
+            toDoListRecord["task"] = taskValue as CKRecordValue
+        }
         toDoListRecord["category"] = reference as CKRecordValue
         CKContainer.default().privateCloudDatabase.save(toDoListRecord) { record, error in
             DispatchQueue.main.async {

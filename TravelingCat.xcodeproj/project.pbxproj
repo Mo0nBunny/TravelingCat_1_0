@@ -34,6 +34,7 @@
 		8318BB3D1FD920BD00DDACED /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB3C1FD920BD00DDACED /* CategoryData.swift */; };
 		8318BB411FD9225A00DDACED /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB401FD9225A00DDACED /* CategoryTableViewCell.swift */; };
 		8318BB451FD93BDD00DDACED /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318BB441FD93BDD00DDACED /* DetailTableViewCell.swift */; };
+		8330B3E920878A3100DD7F51 /* SyncFromCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B3E820878A3100DD7F51 /* SyncFromCloud.swift */; };
 		833673CD207A218500ECC8F7 /* DatePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CC207A218500ECC8F7 /* DatePopupViewController.swift */; };
 		833673CF207A28D700ECC8F7 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */; };
 		833D14C9207245BE00BA4035 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833D14C8207245BE00BA4035 /* GoogleService-Info.plist */; };
@@ -103,6 +104,7 @@
 		8318BB3C1FD920BD00DDACED /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		8318BB401FD9225A00DDACED /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8318BB441FD93BDD00DDACED /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		8330B3E820878A3100DD7F51 /* SyncFromCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncFromCloud.swift; sourceTree = "<group>"; };
 		833673CC207A218500ECC8F7 /* DatePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopupViewController.swift; sourceTree = "<group>"; };
 		833673CE207A28D700ECC8F7 /* TimePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		833D14C8207245BE00BA4035 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				8315F41B207CFA2B00EFAC83 /* TravelingCat.entitlements */,
+				8330B3E820878A3100DD7F51 /* SyncFromCloud.swift */,
 				8318BB2E1FD914D000DDACED /* Info.plist */,
 				833D14C72072459F00BA4035 /* SupportingFiles */,
 				8367F8C4206A39C90074E607 /* Trip */,
@@ -529,6 +532,7 @@
 				8318BB451FD93BDD00DDACED /* DetailTableViewCell.swift in Sources */,
 				833D14FC2073CA6900BA4035 /* ToDoList+CoreDataClass copy.swift in Sources */,
 				833D14F82073CA6900BA4035 /* Trip+CoreDataClass copy.swift in Sources */,
+				8330B3E920878A3100DD7F51 /* SyncFromCloud.swift in Sources */,
 				833D14F72073CA6900BA4035 /* ToDoList+CoreDataProperties copy.swift in Sources */,
 				833D14F92073CA6900BA4035 /* Trip+CoreDataProperties copy.swift in Sources */,
 				8318BB371FD91EB100DDACED /* DetailViewController.swift in Sources */,

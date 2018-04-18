@@ -12,26 +12,11 @@ import CoreData
 class CoreDataStack {
     // MARK: - Core Data stack
     
-//    lazy var persistentContainer: NSPersistentContainer = {
-//
-//        let container = NSPersistentContainer(name: "TravelingCat")
-//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let error = error as NSError? {
-//                fatalError("Unresolved error \(error), \(error.userInfo)")
-//            }
-//        })
-//        return container
-//    }()
-    
     lazy var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TravelingCat")
-        
-//        let appName: String = "TravelingCat"
         var persistentStoreDescriptions: NSPersistentStoreDescription
-        
         let storeUrl =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.sirin.TravelingCat")!.appendingPathComponent("TravelingCat.sqlite")
-        
         
         let description = NSPersistentStoreDescription()
         description.shouldInferMappingModelAutomatically = true

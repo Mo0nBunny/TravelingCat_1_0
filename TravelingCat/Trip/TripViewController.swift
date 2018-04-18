@@ -28,73 +28,13 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func syncButtonTapped(_ sender: UIBarButtonItem) {
         
-        let alertController = UIAlertController(title: "Traveling Cat", message: "Sync trips from iCloud", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Traveling Cat", message: "Download trips from iCloud?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            let privateDatabase = CKContainer.default().privateCloudDatabase
-            let query = CKQuery(recordType: "Trip", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-            query.sortDescriptors = [NSSortDescriptor(key: "tripTitle", ascending: false)]
-            privateDatabase.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: Error?) in
-                if let trips = results {
-                    DispatchQueue.main.async(execute: {
-                        for item: CKRecord in trips {
-                            let entity = NSEntityDescription.entity(forEntityName: "Trip", in: self.context)
-                            let trip = Trip(entity: entity!, insertInto: self.context)
-                            trip.id = item.recordID.recordName
-                            trip.tripDate = item["tripDate"] as? String
-                            trip.tripImage = item["tripImage"] as? String
-                            trip.tripTitle = item["tripTitle"] as? String
-                            trip.tripRemind = item["tripRemind"] as? Date
-                            
-                            
-                            let reference = CKReference(recordID: CKRecordID(recordName: (trip.id)!), action: .deleteSelf)
-                            let predicate = NSPredicate(format: "trip == %@", reference)
-                            let categoryQuery = CKQuery(recordType: "Category", predicate: predicate)
-                            CKContainer.default().privateCloudDatabase.perform(categoryQuery, inZoneWith: nil, completionHandler: { (categoriesFromCloud, error) in
-                                if let error = error {
-                                    print("Error: \(error.localizedDescription)")
-                                } else {
-                                    if let categories = categoriesFromCloud {
-                                        DispatchQueue.main.async {
-                                            for item: CKRecord in categories {
-                                                let entity = NSEntityDescription.entity(forEntityName: "Category", in: self.context)
-                                                let category = Category(entity: entity!, insertInto: self.context)
-                                                category.id = item.recordID.recordName
-                                                category.title = item["title"] as? String
-                                                category.imageName = item["imageName"] as? String
-                                                
-                                                let reference = CKReference(recordID: CKRecordID(recordName: (category.id)!), action: .deleteSelf)
-                                                let predicate = NSPredicate(format: "category == %@", reference)
-                                                let toDoQuery = CKQuery(recordType: "ToDoList", predicate: predicate)
-                                                CKContainer.default().privateCloudDatabase.perform(toDoQuery, inZoneWith: nil, completionHandler: { (toDoFromCloud, error) in
-                                                    if let error = error {
-                                                        print("Error: \(error.localizedDescription)")
-                                                    } else {
-                                                        if let toDos = toDoFromCloud {
-                                                            DispatchQueue.main.async {
-                                                                for item: CKRecord in toDos {
-                                                                    let entity = NSEntityDescription.entity(forEntityName: "ToDoList", in: self.context)
-                                                                    let toDo = ToDoList(entity: entity!, insertInto: self.context)
-                                                                    toDo.id = item.recordID.recordName
-                                                                    toDo.task = item["task"] as? String
-                                                                    toDo.isDone = item["isDone"] as! Bool
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                })
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                            })
-                            self.appDelegate.coreDataStack.saveContext()
-                        }
-                        self.tripTableView.reloadData()
-                    })
-                }
-            }
+            SyncFromCloud().syncFromCloud()
+            self.tripTableView.reloadData()
         }
+        
+        
         let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(okAction)
         alertController.addAction(cancel)
@@ -213,8 +153,6 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             do {
                 try self.context.save()
-                //                self.tripArray.remove(at: indexPath.row)
-                //                tableView.deleteRows(at: [indexPath], with: .fade)
                 print("saved!")
             } catch let error as NSError  {
                 print("Could not save \(error), \(error.userInfo)")
