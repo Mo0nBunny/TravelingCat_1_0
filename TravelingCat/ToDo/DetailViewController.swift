@@ -10,13 +10,15 @@ import UIKit
 import CoreData
 import CloudKit
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
-    
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+
     var category: Category?
     var taskArray = [ToDoList]()
-//    weak var delegate: DetailViewControllerDelegate?
-//    let detailViewController = DetailViewController()
-   
+    weak var delegate: DetailViewControllerDelegate?
+    
+    func reloadMasterTableView() {
+        delegate?.reloadTableView()
+    }
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,6 +40,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.isDone = taskIsDone
         task.category = category
+        reloadMasterTableView()
         updateRecord(task: task)
         appDelegate.coreDataStack.saveContext()
         self.taskTableView.reloadData()
@@ -45,6 +48,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if let tasks = category?.tasks {
             self.taskArray = tasks.allObjects as! [ToDoList]
         }
@@ -56,7 +60,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//         detailViewController.delegate = self
         let image = UIImage(named: "background2")
         let imageView = UIImageView(image: image)
         imageView.center = taskTableView.center
@@ -256,13 +259,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    
-//    func reloadMasterTableView() {
-//        delegate?.reloadTableView()
-//    }
 }
 
-//
-//protocol DetailViewControllerDelegate: class {
-//    func reloadTableView()
-//}
+protocol DetailViewControllerDelegate: class {
+    func reloadTableView()
+}

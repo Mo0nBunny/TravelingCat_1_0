@@ -34,7 +34,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)
         
         let category = Category(entity: entity!, insertInto: context)
-        category.title = NSLocalizedString("013_cat1_new_category", comment: "")  // should translate or not was "New Category"
+        category.title = NSLocalizedString("013_cat1_new_category", comment: "")  
         category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
         category.trip = trip
         saveToCloud(category: category)
@@ -81,6 +81,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         categoryTableView.tableFooterView = UIView(frame: CGRect.zero)
         //Mark - without text on back button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -212,6 +213,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let category = categoryArray[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.category = category
+                controller.delegate = self
             }
         }
     }
@@ -327,9 +329,8 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-//extension MasterViewController: DetailViewControllerDelegate {
-//    
-//    func reloadTableView() {
-//        categoryTableView.reloadData()
-//    }
-//}
+extension MasterViewController: DetailViewControllerDelegate {
+    func reloadTableView() {
+        categoryTableView.reloadData()
+    }
+}
