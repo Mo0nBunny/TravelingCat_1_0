@@ -6,9 +6,6 @@ target 'TravelingCat' do
   use_frameworks!
 
   # Pods for TravelingCat
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
   pod 'UICircularProgressRing'
 
 end
