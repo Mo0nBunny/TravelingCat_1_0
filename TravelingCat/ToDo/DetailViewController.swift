@@ -14,6 +14,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var category: Category?
     var taskArray = [ToDoList]()
+//    weak var delegate: DetailViewControllerDelegate?
+//    let detailViewController = DetailViewController()
+   
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -53,7 +56,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//         detailViewController.delegate = self
         let image = UIImage(named: "background2")
         let imageView = UIImageView(image: image)
         imageView.center = taskTableView.center
@@ -253,4 +256,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+//    func reloadMasterTableView() {
+//        delegate?.reloadTableView()
+//    }
 }
+
+//
+//protocol DetailViewControllerDelegate: class {
+//    func reloadTableView()
+//}

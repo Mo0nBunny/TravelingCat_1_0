@@ -15,6 +15,9 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var fetchResultsController: NSFetchedResultsController<Trip>!
     var tripArray: [Trip] = []
+    var spinner: UIActivityIndicatorView!
+    
+   
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -28,14 +31,88 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func syncButtonTapped(_ sender: UIBarButtonItem) {
         
-        let alertController = UIAlertController(title: "Traveling Cat", message: "Download trips from iCloud?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            SyncFromCloud().syncFromCloud()
+        let alertController = UIAlertController(title: NSLocalizedString("001_app_name", comment: ""),
+                                                message: NSLocalizedString("002_download_from_cloud", comment: ""),
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: NSLocalizedString("003_yes", comment: ""), style: .default) { (action) in
+            self.spinner.startAnimating()
+            
+            
+            let privateDatabase = CKContainer.default().privateCloudDatabase
+            let query = CKQuery(recordType: "Trip", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+            query.sortDescriptors = [NSSortDescriptor(key: "tripTitle", ascending: false)]
+            privateDatabase.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: Error?) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else {
+                    if let trips = results {
+                        DispatchQueue.main.async(execute: {
+                            for item: CKRecord in trips {
+                                let entity = NSEntityDescription.entity(forEntityName: "Trip", in: self.context)
+                                let trip = Trip(entity: entity!, insertInto: self.context)
+                                trip.id = item.recordID.recordName
+                                trip.tripDate = item["tripDate"] as? String
+                                trip.tripImage = item["tripImage"] as? String
+                                trip.tripTitle = item["tripTitle"] as? String
+                                trip.tripRemind = item["tripRemind"] as? Date
+                                
+                                let categoryReference = CKReference(recordID: CKRecordID(recordName: (trip.id)!), action: .deleteSelf)
+                                let categoryPredicate = NSPredicate(format: "trip == %@", categoryReference)
+                                let categoryQuery = CKQuery(recordType: "Category", predicate: categoryPredicate)
+                                privateDatabase.perform(categoryQuery, inZoneWith: nil, completionHandler: { (categoriesFromCloud, error) in
+                                    if let error = error {
+                                        print("Error: \(error.localizedDescription)")
+                                    } else {
+                                        if let categories = categoriesFromCloud {
+                                            DispatchQueue.main.async {
+                                                let categoryEntity = NSEntityDescription.entity(forEntityName: "Category", in: self.context)
+                                                for item: CKRecord in categories {
+                                                    let category = Category(entity: categoryEntity!, insertInto: self.context)
+                                                    category.id = item.recordID.recordName
+                                                    category.title = item["title"] as? String
+                                                    category.imageName = item["imageName"] as? String
+                                                    category.trip = trip
+                                                    
+                                                    
+                                                    let toDoReference = CKReference(recordID: CKRecordID(recordName: (category.id)!), action: .deleteSelf)
+                                                    let toDoPredicate = NSPredicate(format: "category == %@", toDoReference)
+                                                    let toDoQuery = CKQuery(recordType: "ToDoList", predicate: toDoPredicate)
+                                                    privateDatabase.perform(toDoQuery, inZoneWith: nil, completionHandler: { (toDoFromCloud, error) in
+                                                        if let error = error {
+                                                            print("Error: \(error.localizedDescription)")
+                                                        } else {
+                                                            if let toDos = toDoFromCloud {
+                                                                DispatchQueue.main.async {
+                                                                    let toDoEntity = NSEntityDescription.entity(forEntityName: "ToDoList", in: self.context)
+                                                                    for item: CKRecord in toDos {
+                                                                        let toDo = ToDoList(entity: toDoEntity!, insertInto: self.context)
+                                                                        toDo.id = item.recordID.recordName
+                                                                        toDo.task = item["task"] as? String
+                                                                        toDo.isDone = item["isDone"] as! Bool
+                                                                        toDo.category = category
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    })
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
+                                self.appDelegate.coreDataStack.saveContext()
+                            }
+                            self.spinner.stopAnimating()
+                        })
+                    }
+                }
+            }
             self.tripTableView.reloadData()
         }
         
         
-        let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("004_no", comment: ""), style: .cancel, handler: nil)
         alertController.addAction(okAction)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
@@ -69,11 +146,9 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else {
             cell.remindLabel.text = ""
         }
-        
         cell.tripColor.image = UIImage(named: tripImage!)
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -84,6 +159,16 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tripTableView.reloadData()
         syncButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "AppleSDGothicNeo-Regular", size: 18)!], for: UIControlState.normal)
+        
+        spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner.color = #colorLiteral(red: 0.7065995932, green: 0.000459628267, blue: 0.1269010901, alpha: 1)
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        tripTableView.addSubview(spinner)
+        
+        NSLayoutConstraint(item: spinner, attribute: .centerX, relatedBy: .equal, toItem: tripTableView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: spinner, attribute: .centerY, relatedBy: .equal, toItem: tripTableView, attribute: .centerY, multiplier: 0.85, constant: 0).isActive = true
+        
         self.tripTableView.delegate =  self
         self.tripTableView.dataSource = self
         //MARK: View without empty cells
@@ -147,7 +232,7 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
+        let delete = UITableViewRowAction(style: .default, title: NSLocalizedString("005_delete", comment: "")) {(action, indexPath) in
             self.deleteRecord(trip: self.tripArray[indexPath.row])
             self.context.delete(self.tripArray[indexPath.row])
             
@@ -214,4 +299,5 @@ class TripViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+
 }

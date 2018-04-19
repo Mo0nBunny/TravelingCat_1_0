@@ -34,7 +34,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)
         
         let category = Category(entity: entity!, insertInto: context)
-        category.title = "New Category"
+        category.title = NSLocalizedString("013_cat1_new_category", comment: "")  // should translate or not was "New Category"
         category.imageName = colorLabel[Int(arc4random_uniform(UInt32(colorLabel.count)))]
         category.trip = trip
         saveToCloud(category: category)
@@ -47,7 +47,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.categoryTableView.scrollToRow(at: lastIndexPath, at: .top, animated: false)
         }) { (finished) in
             let newCell = self.categoryTableView.visibleCells.last as! CategoryTableViewCell
-            newCell.inputCategory.text = "New Category \(self.categoryArray.count)"
+            newCell.inputCategory.text = NSLocalizedString("013_cat1_new_category", comment: "") + " \(self.categoryArray.count)"
             newCell.inputCategory.selectAll(nil)
             newCell.inputCategory.isHidden = false
             newCell.inputCategory.delegate = self
@@ -131,7 +131,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         addBttn.isHidden = true
         
-        let delete = UITableViewRowAction(style: .default, title: "Delete") {(action, indexPath) in
+        let delete = UITableViewRowAction(style: .default, title: NSLocalizedString("005_delete", comment: "")) {(action, indexPath) in
             self.deleteRecord(category: self.categoryArray[indexPath.row])
             self.context.delete(self.categoryArray[indexPath.row])
             do {
@@ -145,7 +145,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
-        let edit = UITableViewRowAction(style: .default, title: "Edit") {(action, indexPath) in
+        let edit = UITableViewRowAction(style: .default, title: NSLocalizedString("006_edit", comment: "")) {(action, indexPath) in
             self.isEditAction = true
             let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
             let oldName = cell.categoryLabel.text
@@ -326,3 +326,10 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 }
+
+//extension MasterViewController: DetailViewControllerDelegate {
+//    
+//    func reloadTableView() {
+//        categoryTableView.reloadData()
+//    }
+//}

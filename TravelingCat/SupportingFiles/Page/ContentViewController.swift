@@ -52,8 +52,8 @@ class ContentViewController: UIViewController {
         pageButton.layer.borderColor = #colorLiteral(red: 0.5954908982, green: 0.137254902, blue: 0.1568627451, alpha: 1)
         
         switch index {
-        case 0: pageButton.setTitle("Next", for: .normal)
-        case 1: pageButton.setTitle("Got it", for: .normal)
+        case 0: pageButton.setTitle(NSLocalizedString("018_pageVC_next", comment: ""), for: .normal)
+        case 1: pageButton.setTitle(NSLocalizedString("019_pageVC_got_it", comment: ""), for: .normal)
         default:
             break
         }

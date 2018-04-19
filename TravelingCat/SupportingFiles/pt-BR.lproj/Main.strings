@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Remind on"; ObjectID = "0hp-FL-GWF"; */
-"0hp-FL-GWF.text" = "Напомнить";
+"0hp-FL-GWF.text" = "Lembrar me em";
 
 /* Class = "UILabel"; text = "13/12/2018"; ObjectID = "2Tb-b4-4Xc"; */
 "2Tb-b4-4Xc.text" = "13/12/2018";
@@ -9,64 +9,64 @@
 "4oO-al-J1j.text" = "subheader";
 
 /* Class = "UILabel"; text = "Trip to Japan"; ObjectID = "5vK-Vo-c3W"; */
-"5vK-Vo-c3W.text" = "Путешествие в Японию";
+"5vK-Vo-c3W.text" = "Viagem para o Japão";
 
 /* Class = "UIButton"; normalTitle = "Save Date"; ObjectID = "9cx-Zw-iHg"; */
-"9cx-Zw-iHg.normalTitle" = "Сохранить дату";
+"9cx-Zw-iHg.normalTitle" = "Salvar Data";
 
 /* Class = "UITextField"; placeholder = "Enter trip"; ObjectID = "FDX-nl-5Fq"; */
-"FDX-nl-5Fq.placeholder" = "Введите название";
+"FDX-nl-5Fq.placeholder" = "Nome da viagem";
 
 /* Class = "UILabel"; text = "Select Date"; ObjectID = "HI3-uu-7Ni"; */
-"HI3-uu-7Ni.text" = "Выбрать дату";
+"HI3-uu-7Ni.text" = "Selecionar data";
 
 /* Class = "UILabel"; text = "header"; ObjectID = "IMb-F7-qu2"; */
 "IMb-F7-qu2.text" = "header";
 
 /* Class = "UIBarButtonItem"; title = "Sync"; ObjectID = "O4M-s3-hQM"; */
-"O4M-s3-hQM.title" = "Загрузить";
+"O4M-s3-hQM.title" = "Sincronizar";
 
 /* Class = "UINavigationItem"; title = "What to take"; ObjectID = "OWr-Es-fDd"; */
-"OWr-Es-fDd.title" = "Что взять";
+"OWr-Es-fDd.title" = "O que levar";
 
 /* Class = "UIButton"; normalTitle = "Select Date"; ObjectID = "Sbn-0z-Y0z"; */
-"Sbn-0z-Y0z.normalTitle" = "Выбрать";
+"Sbn-0z-Y0z.normalTitle" = "Selecionar";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "VHw-wa-fAy"; */
 "VHw-wa-fAy.text" = "Label";
 
 /* Class = "UILabel"; text = "Date"; ObjectID = "Wu0-Wn-0JV"; */
-"Wu0-Wn-0JV.text" = "Дата";
+"Wu0-Wn-0JV.text" = "Data";
 
 /* Class = "UIButton"; normalTitle = "Select Time"; ObjectID = "XOc-Gf-FDv"; */
-"XOc-Gf-FDv.normalTitle" = "Выбрать";
+"XOc-Gf-FDv.normalTitle" = "Selecionar";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Zxf-nl-BWi"; */
-"Zxf-nl-BWi.normalTitle" = "Сохранить";
+"Zxf-nl-BWi.normalTitle" = "Salvar";
 
 /* Class = "UILabel"; text = "What to take?"; ObjectID = "ah3-qy-xMh"; */
-"ah3-qy-xMh.text" = "Что взять?";
+"ah3-qy-xMh.text" = "O que levar?";
 
 /* Class = "UINavigationItem"; title = "My Trips"; ObjectID = "c1h-A5-LJN"; */
-"c1h-A5-LJN.title" = "Мои путешествия";
+"c1h-A5-LJN.title" = "Minhas viagens";
 
 /* Class = "UILabel"; text = "Category name"; ObjectID = "d2a-3T-rdS"; */
-"d2a-3T-rdS.text" = "Категория";
+"d2a-3T-rdS.text" = "Caterogia";
 
 /* Class = "UILabel"; text = "Remind on"; ObjectID = "hbS-Bu-CEc"; */
-"hbS-Bu-CEc.text" = "Напомнить";
+"hbS-Bu-CEc.text" = "Lembrar";
 
 /* Class = "UILabel"; text = "Remind on:"; ObjectID = "iTm-x5-73R"; */
-"iTm-x5-73R.text" = "Напомнить";
+"iTm-x5-73R.text" = "Lembrar";
 
 /* Class = "UITextField"; placeholder = "Add new task"; ObjectID = "mal-7s-spR"; */
-"mal-7s-spR.placeholder" = "Добавить пункт";
+"mal-7s-spR.placeholder" = "Adicionar nova tarefa";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "o2z-ot-UQJ"; */
-"o2z-ot-UQJ.normalTitle" = "Кнопка";
+"o2z-ot-UQJ.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "yzq-WF-XMd"; */
 "yzq-WF-XMd.text" = "Label";
 
 /* Class = "UILabel"; text = "Add new trip"; ObjectID = "zXv-gh-WMn"; */
-"zXv-gh-WMn.text" = "Новое путешествие";
+"zXv-gh-WMn.text" = "Nova viagem";

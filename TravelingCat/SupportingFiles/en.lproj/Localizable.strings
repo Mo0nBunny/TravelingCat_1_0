@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  TravelingCat
+
+  Created by Sirin on 19/04/2018.
+  Copyright © 2018 Sirin K. All rights reserved.
+*/
+
+// Main
+"001_app_name" = "Traveling Cat";
+"002_download_from_cloud" = "Download trips from iCloud?";
+
+// Alert controllers + button for edit and delete
+"003_yes" = "Yes";
+"004_no" = "No";
+"005_delete" = "Delete";
+"006_edit" = "Edit";
+"007_ok" = "OK";
+
+// Errors
+"008_error" = "Error:";
+"009_error_enter_trip_date" = "Enter trip and date";
+
+// Main category
+"010_cat1_what_to_take" = "What to take?";
+"011_cat1_where_to_go" = "Where to go?";
+"012_cat1_memories" = "Memories";
+
+// Category
+"013_cat1_new_category" = "New Category";
+"014_default_cat_clothes" = "Clothes";
+"015_default_cat_medicine" = "Medicine";
+"016_default_cat_documents" = "Documents";
+"017_default_cat_devices" = "Devices";
+
+// Page controller
+"018_pageVC_next" = "Next";
+"019_pageVC_got_it" = "Got it";
+"020_pageVC_from_dream_reality" = "From Dream to Reality";
+"021_pageVC_be_org" = "Be organized";
+"022_pageVC_create_list_travelings" = "Create list of your travelings";
+"023_pageVC_create_task" = "Create tasks and check progress";

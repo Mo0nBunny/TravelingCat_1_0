@@ -26,8 +26,10 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addButtonTapped(_ sender: Any) {
         
         if tripTextField.text == "" || dateLabel.text == "" {
-            let alertController = UIAlertController(title: "Traveling Cat", message: "Enter trip and date", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let alertController = UIAlertController(title: NSLocalizedString("001_app_name", comment: ""),
+                                                    message: NSLocalizedString("009_error_enter_trip_date", comment: ""),
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: NSLocalizedString("007_ok", comment: ""), style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
         } else {

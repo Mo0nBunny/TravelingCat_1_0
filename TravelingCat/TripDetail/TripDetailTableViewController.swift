@@ -10,7 +10,7 @@ import UIKit
 
 class TripDetailTableViewController: UITableViewController {
     
-    var tripDetailArray = ["What to take?","Where to go?", "Memories"]
+    var tripDetailArray = [NSLocalizedString("010_cat1_what_to_take", comment: ""), NSLocalizedString("011_cat1_where_to_go", comment: ""), NSLocalizedString("012_cat1_memories", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,10 +10,10 @@ import UIKit
 
 struct DefaultCaterogy {
     static var whatToTake : [CaterogyData] = [
-        CaterogyData(title: "Clothes", imageLabel: "yellow"),
-        CaterogyData(title: "Medicine", imageLabel: "blue"),
-        CaterogyData(title: "Documents", imageLabel: "green"),
-        CaterogyData(title: "Devices", imageLabel: "green")
+        CaterogyData(title: NSLocalizedString("014_default_cat_clothes", comment: ""), imageLabel: "yellow"),
+        CaterogyData(title: NSLocalizedString("015_default_cat_medicine", comment: ""), imageLabel: "blue"),
+        CaterogyData(title: NSLocalizedString("016_default_cat_documents", comment: ""), imageLabel: "green"),
+        CaterogyData(title:NSLocalizedString("017_default_cat_devices", comment: ""), imageLabel: "violet")
     ]
 }
 

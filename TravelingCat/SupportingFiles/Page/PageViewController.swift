@@ -10,10 +10,10 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-    var headersArray = ["From Dream to Reality", "Be organized"]
-    var subheadersArray = ["Create list of your travelings", "Create tasks and check progress "]
+    var headersArray = [NSLocalizedString("020_pageVC_from_dream_reality", comment: ""), NSLocalizedString("021_pageVC_be_org", comment: "")]
+    var subheadersArray = [NSLocalizedString("022_pageVC_create_list_travelings", comment: ""), NSLocalizedString("023_pageVC_create_task", comment: "")]
     var imagesArray = ["Map", "Org"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self

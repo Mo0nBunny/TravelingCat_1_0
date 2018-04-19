@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  TravelingCat
+
+  Created by Sirin on 19/04/2018.
+  Copyright © 2018 Sirin K. All rights reserved.
+*/
+
+// Main
+"001_app_name" = "Traveling Cat";
+"002_download_from_cloud" = "Gostaria de fazer o download de suas viagens no iCloud?";
+
+// Alert controllers + button for edit and delete
+"003_yes" = "Sim";
+"004_no" = "Não";
+"005_delete" = "Deletar";
+"006_edit" = "Editar";
+"007_ok" = "OK";
+
+// Errors
+"008_error" = "Error:";
+"009_error_enter_trip_date" = "Preencha os campos em branco";
+
+// Main category
+"0010_cat1_what_to_take" = "O que levar?";
+"0011_cat1_where_to_go" = "Onde ir?";
+"012_cat1_memories" = "Memórias";
+
+// Category
+"013_cat1_new_category" = "Nova Categoria";
+"014_default_cat_clothes" = "Roupas";
+"015_default_cat_medicine" = "Remédios";
+"016_default_cat_documents" = "Documentos";
+"017_default_cat_devices" = "Aparelhos";
+
+// Page controller
+"018_pageVC_next" = "Próximo";
+"019_pageVC_got_it" = "Entendi";
+"020_pageVC_from_dream_reality" = "Transforme seus sonhos em realidade";
+"021_pageVC_be_org" = "Seja organizado";
+"022_pageVC_create_list_travelings" = "Crie listas de suas viagens";
+"023_pageVC_create_task" = "Crie tarefas e veja seu progresso";
+
+//"001_app_name" = "Traveling Cat";
+//"002_download_from_cloud" = "Загрузить данные из iCloud?";
+//
+//// Alert controllers + button for edit and delete
+//"003_yes" = "Да";
+//"004_no" = "Нет";
+//"005_delete" = "Удалить";
+//"006_edit" = "Изменить";
+//"007_ok" = "Ок";
+//
+//// Errors
+//"008_error" = "Ошибка:";
+//"009_error_enter_trip_date" = "Введите название и дату";
+//
+//// Main category
+//"010_cat1_what_to_take" = "Что взять?";
+//"011_cat1_where_to_go" = "Куда пойти?";
+//"012_cat1_memories" = "Моменты";
+//
+//// Category
+//"013_cat1_new_category" = "Новая категория";
+//"014_default_cat_clothes" = "Одежда";
+//"015_default_cat_medicine" = "Лекарства";
+//"016_default_cat_documents" = "Документы";
+//"017_default_cat_devices" = "Электроника";
+//
+//// Page controller
+//"018_pageVC_next" = "Дальше";
+//"019_pageVC_got_it" = "Открыть";
+//"020_pageVC_from_dream_reality" = "От Мечты к Реальности";
+//"021_pageVC_be_org" = "Будь организован";
+//"022_pageVC_create_list_travelings" = "Создай список путешествий";
+//"023_pageVC_create_task" = "Планируй и наблюдай прогресс";
+
