@@ -1063,7 +1063,7 @@
                                 <rect key="frame" x="52" y="255" width="310" height="226"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI3-uu-7Ni">
-                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="310" height="40"/>
+                                        <rect key="frame" x="0.66666666666665719" y="0.0" width="310" height="40"/>
                                         <color key="backgroundColor" red="0.6470588235294118" green="0.13725490196078433" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="00x-Gx-oB3"/>
@@ -1073,7 +1073,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="dQY-Ez-bcP">
-                                        <rect key="frame" x="0.33333333333334281" y="40" width="310" height="148"/>
+                                        <rect key="frame" x="0.66666666666665719" y="40" width="310" height="148"/>
                                         <date key="date" timeIntervalSinceReferenceDate="544873752.19047594">
                                             <!--2018-04-08 09:49:12 +0000-->
                                         </date>
@@ -1082,7 +1082,7 @@
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-Zw-iHg">
-                                        <rect key="frame" x="120.33333333333334" y="188" width="70" height="30"/>
+                                        <rect key="frame" x="120.66666666666666" y="188" width="70" height="30"/>
                                         <state key="normal" title="Save Date">
                                             <color key="titleColor" red="0.69411764710000001" green="0.2470588235" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
