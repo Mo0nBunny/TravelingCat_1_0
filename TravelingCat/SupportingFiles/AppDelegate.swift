@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate  {
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+       
         //MARK: - Color for navigation bar
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.6473289132, green: 0.1308469176, blue: 0.1588187814, alpha: 1)
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
