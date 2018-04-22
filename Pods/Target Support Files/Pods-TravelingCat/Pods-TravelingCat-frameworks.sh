@@ -134,9 +134,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework"
+  install_framework "${PODS_ROOT}/Instabug/Instabug.framework"
+  install_dsym "${PODS_ROOT}/Instabug/Instabug.framework.dSYM"
+  install_framework "${PODS_ROOT}/Instabug/InstabugCore.framework"
+  install_dsym "${PODS_ROOT}/Instabug/InstabugCore.framework.dSYM"
   install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework"
+  install_framework "${PODS_ROOT}/Instabug/Instabug.framework"
+  install_dsym "${PODS_ROOT}/Instabug/Instabug.framework.dSYM"
+  install_framework "${PODS_ROOT}/Instabug/InstabugCore.framework"
+  install_dsym "${PODS_ROOT}/Instabug/InstabugCore.framework.dSYM"
   install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

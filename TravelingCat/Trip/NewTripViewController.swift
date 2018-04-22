@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CloudKit
+import Flurry_iOS_SDK
 
 class NewTripViewController: UIViewController, UITextFieldDelegate {
     
@@ -70,6 +71,7 @@ class NewTripViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
+            Flurry.logEvent("Trips", withParameters: ["tripName": trip.tripTitle as Any])
             appDelegate.coreDataStack.saveContext()
             performSegue(withIdentifier: "unwindSegueFromNewTrip", sender: self)
         }

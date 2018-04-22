@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Instabug
+import Flurry_iOS_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate  {
@@ -17,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       
+        Instabug.start(withToken: "dc03d988e8515732000637c85b07387a", invocationEvent: .shake)
+        
+        Flurry.startSession("KXMP8X85ZNZZBYSPQDSM", with: FlurrySessionBuilder
+            .init()
+            .withCrashReporting(true)
+            .withLogLevel(FlurryLogLevelAll))
+        Flurry.logEvent("Started Application")
+        
         //MARK: - Color for navigation bar
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.6473289132, green: 0.1308469176, blue: 0.1588187814, alpha: 1)
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)

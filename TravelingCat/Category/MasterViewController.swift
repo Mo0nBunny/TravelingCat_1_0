@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import UICircularProgressRing
 import CloudKit
+import Flurry_iOS_SDK
 
 class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -54,7 +55,7 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             newCell.circularProgress.setProgress(value: 0, animationDuration: 2.0)
             newCell.inputCategory.becomeFirstResponder()
         }
-        
+        Flurry.logEvent("Category", withParameters: ["categoryName": category.title as Any])
     }
     
     override func viewWillAppear(_ animated: Bool) {

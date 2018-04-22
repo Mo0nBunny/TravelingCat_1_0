@@ -7,5 +7,7 @@ target 'TravelingCat' do
 
   # Pods for TravelingCat
   pod 'UICircularProgressRing'
+  pod 'Instabug'
+  pod 'Flurry-iOS-SDK/FlurrySDK'
 
 end

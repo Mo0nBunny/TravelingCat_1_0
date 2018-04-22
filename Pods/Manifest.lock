@@ -1,12 +1,23 @@
 PODS:
+  - Flurry-iOS-SDK/FlurrySDK (8.4.0)
+  - Instabug (7.11):
+    - Instabug/Instabug (= 7.11)
+    - Instabug/InstabugCore (= 7.11)
+  - Instabug/Instabug (7.11):
+    - Instabug/InstabugCore
+  - Instabug/InstabugCore (7.11)
   - UICircularProgressRing (1.8.4)
 
 DEPENDENCIES:
+  - Flurry-iOS-SDK/FlurrySDK
+  - Instabug
   - UICircularProgressRing
 
 SPEC CHECKSUMS:
+  Flurry-iOS-SDK: 0c4488af4e4289e2678f81755d3e9c204c0e8bba
+  Instabug: c75b92074736cef00919d63b29311669778e2573
   UICircularProgressRing: 653b31f7252b2959e8234f5b9ea5f925da755954
 
-PODFILE CHECKSUM: 84395daa3469789eab3083c69f78d349ed2380da
+PODFILE CHECKSUM: 268aeb0f3e2b7bc23d153b4de68383abd947fa0c
 
 COCOAPODS: 1.4.0
